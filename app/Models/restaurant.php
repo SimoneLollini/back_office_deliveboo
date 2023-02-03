@@ -4,18 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
 class restaurant extends Model
 {
     use HasFactory;
-    protected $fillable =['name', 'phone', 'piva','address'];
+    protected $fillable = ['name', 'phone', 'piva', 'address'];
 
 
-   
-     /**
+
+    /**
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -24,12 +24,12 @@ class restaurant extends Model
         return $this->belongsToMany(Type::class);
     }
 
-        /**
+    /**
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function plates(): HasMany
+    public function plates(): BelongsTo
     {
-        return $this->hasMany(Plate::class);
+        return $this->belongsTo(Plate::class);
     }
 }

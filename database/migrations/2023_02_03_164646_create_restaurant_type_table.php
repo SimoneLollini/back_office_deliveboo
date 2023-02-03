@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('restaurant_type', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('restaurant_id');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->cascadeOnDelete();
+
             $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('type')->cascadeOnDelete();
+            $table->foreign('type_id')->references('id')->on('types')->cascadeOnDelete();
 
             $table->primary(['restaurant_id', 'type_id']);
-            $table->timestamps();
         });
     }
 
