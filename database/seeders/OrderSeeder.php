@@ -19,9 +19,11 @@ class OrderSeeder extends Seeder
             $newOrder = new Order();
             $newOrder->price = 5;
             $newOrder->phone = '3201239439';
+            $newOrder->description = 'lorem ipsum qualcosa';
             $newOrder->full_name = 'lorem ipsum qualcosa';
             $newOrder->adress = 'via del procinto 57, Milano';
             $newOrder->status = true;
+            $newOrder->save();
         }
     }
 }
