@@ -10,7 +10,7 @@ use App\Models\Plate;
 class order extends Model
 {
     use HasFactory;
-    protected $fillable = ['price', 'phone', 'full-name', 'description', 'adress', 'status'];
+    protected $fillable = ['price', 'phone', 'full-name', 'description', 'address', 'status'];
 
 
 

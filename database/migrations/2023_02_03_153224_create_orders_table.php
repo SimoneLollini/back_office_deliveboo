@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone', 12)->required();
             $table->string('full_name')->required();
             $table->text('description')->nullable();
-            $table->string('adress')->required();
+            $table->string('address')->required();
             $table->boolean('status')->nullable();
             $table->timestamps();
         });
