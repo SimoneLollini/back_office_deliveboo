@@ -19,8 +19,8 @@ class RestaurantSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $newRestaurant = new Restaurant();
             $newRestaurant->name = $faker->name();
-            $newRestaurant->phone = $faker->randomNumber(9, true);
-            $newRestaurant->piva = $faker->randomNumber(9, true);
+            $newRestaurant->phone = $faker->e164PhoneNumber();
+            $newRestaurant->piva = $faker->numerify('###########');
             $newRestaurant->address = $faker->address();
             $newRestaurant->save();
         }

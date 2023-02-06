@@ -19,7 +19,7 @@ class OrderSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $newOrder = new Order();
             $newOrder->price = $faker->randomFloat(2, 5, 60);
-            $newOrder->phone = $faker->randomNumber(10, true);
+            $newOrder->phone = $faker->e164PhoneNumber();
             $newOrder->description = $faker->randomHtml(1, 1);
             $newOrder->full_name = $faker->name();
             $newOrder->address = $faker->address();

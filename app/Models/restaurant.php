@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 
-class restaurant extends Model
+class Restaurant extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'phone', 'piva', 'address'];
