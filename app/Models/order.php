@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use App\Models\plate;
+use App\Models\Plate;
 
-class order extends Model
+class Order extends Model
 {
     use HasFactory;
-    protected $fillable = ['price', 'phone', 'full-name', 'description', 'adress', 'status'];
+    protected $fillable = ['price', 'phone', 'full-name', 'description', 'address', 'status'];
 
 
 

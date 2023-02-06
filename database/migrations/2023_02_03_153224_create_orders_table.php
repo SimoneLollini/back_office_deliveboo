@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->float('price', 5, 2)->required();
-            $table->string('phone', 10)->required();
+            $table->string('phone', 12)->required();
             $table->string('full_name')->required();
             $table->text('description')->nullable();
-            $table->string('adress')->required();
+            $table->string('address')->required();
             $table->boolean('status')->nullable();
             $table->timestamps();
         });
