@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 class PlateController extends Controller
 {
     /**
@@ -14,7 +16,9 @@ class PlateController extends Controller
      */
     public function index()
     {
-        //
+        $plates = DB::table('plates')->paginate(5);
+
+        return view('Admin.Plates.index', compact('plates'));
     }
 
     /**
@@ -24,7 +28,7 @@ class PlateController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.Plates.create');
     }
 
     /**
