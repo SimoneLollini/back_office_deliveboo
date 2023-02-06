@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -14,7 +16,10 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        {
+            $restaurants = Restaurant::orderByDesc('id')->get();
+            return view('admin.restaurants.index', compact('restaurants'));
+        }
     }
 
     /**
@@ -23,8 +28,8 @@ class RestaurantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        return view('admin.restaurants.create');
     }
 
     /**
@@ -44,9 +49,9 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Restaurant $restaurant)
     {
-        //
+        return view('admin.restaurants.show', compact('restaurant'));
     }
 
     /**
@@ -55,9 +60,10 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Restaurant $restaurant)
     {
-        //
+        return view('admin.restaurants.edit', compact('restaurant'));
+
     }
 
     /**
@@ -67,9 +73,10 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update( $request, Restaurant $restaurant)
     {
-        //
+
+        return redirect()->route('admin.restaurants.index')->with('message', "$restaurant->title update successfully");
     }
 
     /**
@@ -78,8 +85,12 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Restaurant $restaurant)
     {
-        //
+        if ($restaurant->id) {
+            Storage::delete($restaurant->id);
+        }
+        $restaurant->delete();
+        return redirect()->route('admin.restaurants.index')->with('message', "$restaurant->name deleted successfully");
     }
 }
