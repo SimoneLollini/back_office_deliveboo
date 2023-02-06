@@ -17,6 +17,9 @@
                     <th scope='col'>Name</th>
                     <th scope='col'>Ingredients</th>
                     <th scope='col'>Description</th>
+                    <th scope='col'>Price</th>
+                    <th scope='col'>Visibility</th>
+                    <th scope='col'>Type</th>
                     <th scope='col'>Action</th>
                 </tr>
             </thead>
@@ -36,6 +39,9 @@
                         <td>{{ $plate->name }}</td>
                         <td>{{ $plate->ingredients }}</td>
                         <td>{{ $plate->description }}</td>
+                        <td>{{ $plate->price }}</td>
+                        <td>{{ $plate->visibility }}</td>
+                        <td>{{ $plate->type }}</td>
                         <td>
                             <div class='d-flex flex-column'>
                                 <div>
