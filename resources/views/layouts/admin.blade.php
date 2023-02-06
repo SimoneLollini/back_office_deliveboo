@@ -71,7 +71,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{route('admin.plates.index')}}">
                                     <span data-feather="file" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-utensils pe-2"></i>
                                     Menu
@@ -85,7 +85,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{route('admin.orders.index')}}">
                                     <span data-feather="file" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-utensils pe-2"></i>
                                     Riepilogo ordini
