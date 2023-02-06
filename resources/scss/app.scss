@@ -1,1 +1,34 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+
+body{
+    background-color: #FFBD59;
+}
+header, #sidebarMenu{
+    background-color: #F6EDDA;
+    font-family: 'League Spartan', sans-serif;
+    height: 80px;
+}
+#sidebarMenu{
+    height: calc( 100vh - 80px );
+}
+
+.text-dark-red, .nav-link{
+    color: #A43C28;
+}
+.fa-solid{
+    color:transparent;
+}
+
+.nav-link:hover{
+    color: #8EA61D;
+    padding-left: 50px;
+    transition: 0.5s;
+}
+.nav-link:hover .fa-solid{
+color:#8EA61D;
+transition: 0.5s;
+}
+
+
+
