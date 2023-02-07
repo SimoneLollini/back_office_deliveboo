@@ -38,7 +38,7 @@ class PlateController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param   App\Http\Requests\StorePlateRequest $request
+     * @param  \App\Http\Requests\StorePlateRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StorePlateRequest $request)
@@ -64,7 +64,7 @@ class PlateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  App\Models\Plate $plate
+     * @param  \App\Models\Plate $plate
      * @return \Illuminate\Http\Response
      */
     public function show(Plate $plate)
@@ -75,7 +75,7 @@ class PlateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  App\Models\Plate $plate
+     * @param  \App\Models\Plate $plate
      * @return \Illuminate\Http\Response
      */
     public function edit(Plate $plate)
