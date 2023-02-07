@@ -4,13 +4,18 @@
 body{
     background-color: #FFBD59;
 }
+
+//header_nav//---------
 header, #sidebarMenu{
     background-color: #F6EDDA;
     font-family: 'League Spartan', sans-serif;
     height: 80px;
 }
 #sidebarMenu{
-    height: calc( 100vh - 80px );
+    height: 100% ;
+    position: fixed;
+    top: 3px;
+    bottom: 0;
 }
 
 .text-dark-red, .nav-link{
@@ -18,6 +23,10 @@ header, #sidebarMenu{
 }
 .fa-solid{
     color:transparent;
+}
+.sidebar-sticky .nav-item:hover{
+    background-color: #FFBD59;
+    padding-top: 0.5rem;
 }
 
 .nav-link:hover{
@@ -29,6 +38,54 @@ header, #sidebarMenu{
 color:#8EA61D;
 transition: 0.5s;
 }
+//end_header_nav//---------
+
+//buttons//---------
+
+.btn_add{
+    background-color: #f7af42;
+    color: #F6EDDA;
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%)
+}
+
+.btn_edit{
+    background-color: #8EA61D;
+    color: #F6EDDA;
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%)
+}
+
+.btn_delete{
+    background-color:#A43C28;
+    color: #F6EDDA;
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%)
+}
+.btn-secondary:hover{
+   background-color: #85898d;
+   border: 1px solid #85898d;
+   color: #F6EDDA;
+
+}
+ .btn_edit:hover{
+    background-color: #a6c22a;
+    color: #F6EDDA;
+ }
+ .btn_delete:hover{
+    background-color: #b44933;
+    color: #F6EDDA;
+ }
+
+//end_buttons//---------
+
+.text_green{
+    color: #8EA61D;
+}
+
+.background{
+    background-image: url(../../../back_office_deliveboo/public/img/deliveroo-pattern.png);
+height: calc( 100vh - 80px );
+}
+
+
 
 
 

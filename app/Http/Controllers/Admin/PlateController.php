@@ -38,13 +38,13 @@ class PlateController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param   App\Http\Requests\StorePlateRequest $request
+     * @param  \App\Http\Requests\StorePlateRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StorePlateRequest $request)
     {
 
-        dd($request);
+        //dd($request);
         $val_data = $request->validated();
         if ($request->hasFile('plate_image')) {
             $plate_image = Storage::disk('public')->put('uploads', $val_data['plate_image']);
@@ -64,7 +64,7 @@ class PlateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  App\Models\Plate $plate
+     * @param  \App\Models\Plate $plate
      * @return \Illuminate\Http\Response
      */
     public function show(Plate $plate)
@@ -75,7 +75,7 @@ class PlateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  App\Models\Plate $plate
+     * @param  \App\Models\Plate $plate
      * @return \Illuminate\Http\Response
      */
     public function edit(Plate $plate)
