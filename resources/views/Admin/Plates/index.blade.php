@@ -1,14 +1,15 @@
-@extends('layouts.admin');
+@extends('layouts.admin')
 
 @section('content')
 <div class='container p-3'>
-    <h1 class='text-center mb-4'>Laravel CRUD table admin</h1>
-    <table class='table p-5'>
+    <h1 class='text-center mb-4 text-white'>Laravel CRUD table admin</h1>
+    <table class='table table-striped'>
         <thead>
-            <div class='row justify-content-between p-3 bg-light m-0 border-bottom border-dark align-items-center'>
-                <div class='col-2'><strong>All data</strong></div>
-                <div class='col-2 text-end'><a href="{{ route('admin.plates.create') }}" type="button"
-                        class='btn btn-primary'>Add new data</a></div>
+            <div class='row justify-content-between py-3 m-0 align-items-center'>
+
+                <div class='text-end'><a href="{{ route('admin.plates.create') }}" type="button"
+                        class='btn btn_add text-white'><i class="fa-solid fa-plus text-white"></i> Add
+                        plate</a></div>
             </div>
             @include ('partials.message')
             <tr class='bg-light'>
@@ -50,12 +51,12 @@
                         </div>
                         <div>
                             <a href="{{ route('admin.plates.edit', $plate->id) }}" type="button"
-                                class='btn btn-primary col-12 mb-3'>Edit</a>
+                                class='btn btn_edit col-12 mb-3'>Edit</a>
                         </div>
                         <div>
 
                             <button data-bs-toggle='modal' data-bs-target='#delete-{{ $plate->id }}'
-                                class='btn btn-danger col-12 mb-3'>Delete</button>
+                                class='btn btn_delete col-12 mb-3'>Delete</button>
 
                             @include('partials.plate-modal')
                         </div>

@@ -60,49 +60,51 @@
 
         <div class="container-fluid">
             <div class="row">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
-                    <div class=" pt-3 sidebar-sticky">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block px-0 sidebar collapse">
+                    <div class="pt-3 sidebar-sticky">
                         <ul class="nav flex-column text-uppercase">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="">
+                            <li class="nav-item pt-3">
+                                <a class=" nav-link" aria-current="page" href="">
                                     <span data-feather="home" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-utensils pe-2"></i>
                                     Statistiche
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item pt-1">
                                 <a class="nav-link" href="{{route('admin.plates.index')}}">
                                     <span data-feather="file" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-utensils pe-2"></i>
                                     Menu
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item pt-1">
                                 <a class="nav-link" href="#">
                                     <span data-feather="file" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-utensils pe-2"></i>
                                     Nuovo piatto
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item pt-1">
                                 <a class="nav-link" href="{{route('admin.orders.index')}}">
                                     <span data-feather="file" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-utensils pe-2"></i>
                                     Riepilogo ordini
                                 </a>
+                            </li>
+                            <li class="nav-item pt-1">
                                 <a class="nav-link" href="#">
                                     <span data-feather="file" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-utensils pe-2"></i>
                                     La tua cucina
                                 </a>
                             </li>
-                            </li>
+
                         </ul>
                     </div>
                 </nav>
                 <!-- nav -->
 
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-5">
+                <main class="col-md-9 ms-sm-auto col-lg-10 pt-5">
                     @yield('content')
                 </main>
             </div>
