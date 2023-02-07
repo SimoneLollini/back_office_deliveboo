@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Deliveboo') }}</title>
+    <title>{{ config('app.name', 'DeliveBoo') }}</title>
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -32,8 +32,8 @@
 <body>
     <div id="app">
 
-        <header class="d-flex align-items-center text-dark-red fw-bold sticky-top flex-md-nowrap py-4 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#"><img class="img-fluid"
+        <header class="d-flex align-items-center text-dark-red fw-bold sticky-top flex-md-nowrap py-4 shadow-sm">
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="{{ url('/') }}"><img class="img-fluid"
                     src="{{asset('/img/deliveboo-logo.png')}}" alt="deliveboo-logo"></a>
             <ul class="navbar-nav ml-auto pe-4 ms-auto">
                 <li class="nav-item dropdown">
