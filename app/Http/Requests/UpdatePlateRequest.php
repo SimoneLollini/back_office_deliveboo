@@ -24,7 +24,8 @@ class UpdatePlateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|unique:plates,name|min:5|max:150',
+            'plate_image' => 'nullable|image|max:300'
         ];
     }
 }
