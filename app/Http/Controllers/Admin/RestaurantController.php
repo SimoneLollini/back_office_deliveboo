@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreRestaurantRequest;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Validator;
 
 class RestaurantController extends Controller
 {
@@ -15,8 +18,7 @@ class RestaurantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        {
+    { {
             $restaurants = Restaurant::orderByDesc('id')->get();
             return view('admin.restaurants.index', compact('restaurants'));
         }
@@ -28,7 +30,7 @@ class RestaurantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
         return view('admin.restaurants.create');
     }
 
@@ -38,9 +40,16 @@ class RestaurantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRestaurantRequest $request)
     {
-        //
+
+        // $val_data = $request->all();
+        // $val_data['user_id'] = Auth::user()->id;
+        // $val_data->validated();
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        $restaurant = Restaurant::create($data);
+        return to_route('admin.dashboard');
     }
 
     /**
@@ -63,7 +72,6 @@ class RestaurantController extends Controller
     public function edit(Restaurant $restaurant)
     {
         return view('admin.restaurants.edit', compact('restaurant'));
-
     }
 
     /**
@@ -73,7 +81,7 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update( $request, Restaurant $restaurant)
+    public function update($request, Restaurant $restaurant)
     {
 
         return redirect()->route('admin.restaurants.index')->with('message', "$restaurant->title update successfully");
