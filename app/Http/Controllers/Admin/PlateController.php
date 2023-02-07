@@ -44,7 +44,7 @@ class PlateController extends Controller
     public function store(StorePlateRequest $request)
     {
 
-        dd($request);
+        //dd($request);
         $val_data = $request->validated();
         if ($request->hasFile('plate_image')) {
             $plate_image = Storage::disk('public')->put('uploads', $val_data['plate_image']);
