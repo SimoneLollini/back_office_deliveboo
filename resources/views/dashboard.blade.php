@@ -21,8 +21,8 @@
             <div class="card">
                 <div class="card-body">
                     Aggiungi il tuo ristorante!
-                    <a class="btn btn-primary ms-3" href="{{ route('admin.restaurants.create') }}" role="button"><i
-                            class="fas fa-plus fa-lg"></i></a>
+                    <a class="btn btn-primary ms-3" href="{{ route('admin.restaurants.create') }}" role="button">
+                        <i class="fas fa-plus fa-lg"></i></a>
                 </div>
 
             </div>
