@@ -8,11 +8,10 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
+                    Aggiungi il tuo ristorante!
+                    <a class="btn btn-primary ms-3" href="{{ route('admin.restaurants.create') }}" role="button">
+                        <i class="fas fa-plus fa-lg"></i></a>
+                </div>
 
                     {{ __('You are logged in!') }}
                 </div>
