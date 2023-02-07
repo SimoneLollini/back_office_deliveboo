@@ -1,11 +1,17 @@
 @extends('layouts.app')
 @section('content')
 <h1 class="text-center pt-5 pb-2 ">I MIEI ORDINI</h1>
+
 @if (session('message'))
 <div class="alert alert-success">
     {{ session('message') }}
 </div>
 @endif
+<div class="d-flex justify-content-center">
+
+    <div class=" text-center">{{ $orders->links() }}</div>
+</div>
+
 
 <div class="container_sm">
     
@@ -35,6 +41,8 @@
         </span>
         </div>
         @endforeach
+
+
     
 </div>
 
