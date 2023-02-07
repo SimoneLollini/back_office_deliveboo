@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreRestaurantRequest;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -15,8 +16,7 @@ class RestaurantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        {
+    { {
             $restaurants = Restaurant::orderByDesc('id')->get();
             return view('admin.restaurants.index', compact('restaurants'));
         }
@@ -28,7 +28,7 @@ class RestaurantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
         return view('admin.restaurants.create');
     }
 
@@ -38,9 +38,12 @@ class RestaurantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRestaurantRequest $request)
     {
-        //
+        $val_data = $request->validate();
+
+        Restaurant::create($val_data);
+        return to_route('restaurant.index');
     }
 
     /**
@@ -63,7 +66,6 @@ class RestaurantController extends Controller
     public function edit(Restaurant $restaurant)
     {
         return view('admin.restaurants.edit', compact('restaurant'));
-
     }
 
     /**
@@ -73,7 +75,7 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update( $request, Restaurant $restaurant)
+    public function update($request, Restaurant $restaurant)
     {
 
         return redirect()->route('admin.restaurants.index')->with('message', "$restaurant->title update successfully");
