@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Validator;
 
 class RestaurantController extends Controller
 {
@@ -40,10 +42,14 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        $val_data = $request->validate();
 
-        Restaurant::create($val_data);
-        return to_route('restaurant.index');
+        // $val_data = $request->all();
+        // $val_data['user_id'] = Auth::user()->id;
+        // $val_data->validated();
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        $restaurant = Restaurant::create($data);
+        return to_route('admin.dashboard');
     }
 
     /**
