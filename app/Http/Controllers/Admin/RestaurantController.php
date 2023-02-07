@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreRestaurantRequest;
+use App\Http\Requests\UpdateRestaurantRequest;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -73,10 +75,11 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update( $request, Restaurant $restaurant)
+    public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
-
-        return redirect()->route('admin.restaurants.index')->with('message', "$restaurant->title update successfully");
+        $val_data = $request->validate();
+        $restaurant->update($val_data);
+        return to_route('admin.restaurants.index', $restaurant->id)->with('message', "$restaurant->title update successfully");
     }
 
     /**
@@ -91,6 +94,6 @@ class RestaurantController extends Controller
             Storage::delete($restaurant->id);
         }
         $restaurant->delete();
-        return redirect()->route('admin.restaurants.index')->with('message', "$restaurant->name deleted successfully");
+        return to_route('admin.restaurants.index')->with('message', "$restaurant->name deleted successfully");
     }
 }
