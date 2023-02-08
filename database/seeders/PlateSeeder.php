@@ -18,10 +18,10 @@ class PlateSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $types = Type::all()->pluck('id')->all();
-        $restaurants = Restaurant::all()->pluck('id')->all();
+        $restaurants = Restaurant::all()->pluck('id');
         $lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
         $plates = ['Pasta', 'Pizza', 'Lasagne', 'Risotto', 'Polenta', 'Polpette', 'Arancine', 'Bistecca', 'Hamburger'];
+        $type = ['Antipasto', 'Primo', 'Secondo', 'Dolce'];
         foreach ($plates as $key => $plate) {
             $newPlate = new Plate();
             $newPlate->name = $plate;
@@ -30,7 +30,7 @@ class PlateSeeder extends Seeder
             //image
             $newPlate->price = $faker->randomFloat(2, 5, 60);
             $newPlate->visibility = $faker->boolean();
-            $newPlate->type = $faker->randomElement($types);
+            $newPlate->type = $faker->randomElement($type);
             $newPlate->restaurant_id = $faker->randomElement($restaurants);
             $newPlate->save();
         }

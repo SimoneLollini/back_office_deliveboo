@@ -87,7 +87,7 @@ class RestaurantController extends Controller
     public function update($request, Restaurant $restaurant)
     {
 
-        return redirect()->route('admin.restaurants.index')->with('message', "$restaurant->title update successfully");
+        return to_route('admin.restaurants.index')->with('message', "$restaurant->title update successfully");
     }
 
     /**
@@ -102,6 +102,6 @@ class RestaurantController extends Controller
             Storage::delete($restaurant->id);
         }
         $restaurant->delete();
-        return redirect()->route('admin.restaurants.index')->with('message', "$restaurant->name deleted successfully");
+        return to_route('admin.restaurants.index')->with('message', "$restaurant->name deleted successfully");
     }
 }
