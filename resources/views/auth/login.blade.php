@@ -44,7 +44,7 @@
                                 @enderror
 
                                 @if (Route::has('password.request'))
-                                <a class="btn text_dark_red text-start ps-4" href="{{ route('password.request') }}">
+                                <a class="btn text_dark_red text-start ps-4 reg" href="{{ route('password.request') }}">
                                     {{ __('Password Dimenticata?') }}
                                 </a>
                                 @endif
@@ -75,7 +75,7 @@
 
                             <div class="row mb-0 text-center text_dark_red">
                                 <h5 class="mb-0">Non hai un account?</h5>
-                                <a class="btn text_dark_red ps-4 fs-5" href="{{ route('register') }}">
+                                <a class="btn text_dark_red ps-4 fs-5 reg m-auto" href="{{ route('register') }}">
                                     {{ __('Registrati qui!') }}
                                 </a>
                             </div>
