@@ -11,6 +11,11 @@ header, #sidebarMenu{
     font-family: 'League Spartan', sans-serif;
     height: 80px;
 }
+.dropdown-menu[data-bs-popper] {
+    top: 100%;
+    left: -75px;
+}
+
 #sidebarMenu{
     height: 100% ;
     position: fixed;
