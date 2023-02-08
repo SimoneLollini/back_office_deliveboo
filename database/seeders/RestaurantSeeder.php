@@ -20,6 +20,7 @@ class RestaurantSeeder extends Seeder
         $users = User::all()->pluck('id')->all();
         for ($i = 1; $i < 11; $i++) {
             $newRestaurant = new Restaurant();
+            $newRestaurant->cover_image = null;
             $newRestaurant->name = $faker->name();
             $newRestaurant->phone = $faker->e164PhoneNumber();
             $newRestaurant->piva = $faker->numerify('###########');

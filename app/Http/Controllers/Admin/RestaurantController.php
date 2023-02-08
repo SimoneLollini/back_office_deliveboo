@@ -49,6 +49,12 @@ class RestaurantController extends Controller
         // $val_data['user_id'] = Auth::user()->id;
         // $val_data->validated();
         $data = $request->all();
+
+        if ($request->hasFile('restaurant_image')) {
+            $restaurant_image = Storage::disk('public')->put('uploads', $data['restaurant_image']);
+            $data['restaurant_image'] = $restaurant_image;
+        }
+
         $data['user_id'] = Auth::user()->id;
         $restaurant = Restaurant::create($data);
         $restaurant->types()->attach($request['type_id']);
