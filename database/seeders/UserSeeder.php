@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
         for ($i = 1; $i < 21; $i++) {
             $newUser = new User();
             $newUser->name = Str::random(10);
-            $newUser->email = Str::random(10) . '@gmail' . 'com';
+            $newUser->email = Str::random(10) . '@gmail.com';
             $newUser->password = 'password';
             $newUser->save();
 

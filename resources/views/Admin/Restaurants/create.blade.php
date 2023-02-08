@@ -12,9 +12,10 @@
             {{-- SEPARATORE --}}
 
             <div class="mb-3">
-                <label for="name" class="form-label">Name <strong class="text-danger">*</strong></label>
+                <label for="name" class="form-label">Inserisci il nome del tuo ristorante <strong
+                        class="text-danger">*</strong></label>
                 <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror"
-                    placeholder="add name" value="{{ old('name') }}" required>
+                    placeholder="Aggiungi nome" value="{{ old('name') }}" required>
             </div>
 
             @error('name')
@@ -43,9 +44,9 @@
             {{-- SEPARATORE --}}
 
             <div class="mb-3">
-                <label for="phone" class="form-label">Phone <strong class="text-danger">*</strong></label>
+                <label for="phone" class="form-label">Numero di telefono <strong class="text-danger">*</strong></label>
                 <input type="text" name="phone" id="phone"
-                    class="form-control @error('phone') is-invalid @enderror" placeholder="add phone"
+                    class="form-control @error('phone') is-invalid @enderror" placeholder="Aggiungi numero di telefono"
                     value="{{ old('phone') }}" required>
             </div>
 
@@ -58,7 +59,7 @@
             <div class="mb-3">
                 <label for="piva" class="form-label">P.IVA <strong class="text-danger">*</strong></label>
                 <input type="text" name="piva" id="piva" class="form-control @error('piva') is-invalid @enderror"
-                    placeholder="add piva" value="{{ old('piva') }}" required>
+                    placeholder="Aggiungi piva" value="{{ old('piva') }}" required>
             </div>
 
             @error('piva')
@@ -68,9 +69,9 @@
             {{-- SEPARATORE --}}
 
             <div class="mb-3">
-                <label for="address" class="form-label">Address <strong class="text-danger">*</strong></label>
+                <label for="address" class="form-label">Indirizzo <strong class="text-danger">*</strong></label>
                 <input type="text" name="address" id="address"
-                    class="form-control @error('address') is-invalid @enderror" placeholder="add address"
+                    class="form-control @error('address') is-invalid @enderror" placeholder="Inserisci indirizzo"
                     value="{{ old('address') }}" required>
             </div>
 
@@ -81,7 +82,8 @@
             {{-- SEPARATORE --}}
 
             <div class="mb-3">
-                <label for="restaurant_image" class="form-label">Plate image <strong class="text-danger">*</strong></label>
+                <label for="restaurant_image" class="form-label">Aggiugi l'immagine del tuo ristorante <strong
+                        class="text-danger">*</strong></label>
                 <input type="file" class="form-control @error('restaurant_image') is-invalid @enderror"
                     id="restaurant_image" name="restaurant_image" value="{{ old('restaurant_image') }}" required>
                 @error('restaurant_image')

@@ -26,11 +26,11 @@ class StoreRestaurantRequest extends FormRequest
         return [
             'name' => 'required|max:100',
             'type_id' => 'required',
-            'phone' => 'required|max:12',
-            'piva' => 'required|max:12',
+            'phone' => 'required|min:10|max:12',
+            'piva' => 'required|unique:restaurants,piva|digits:12',
             'address' => 'required',
             'user_id' => 'unique:restaurant',
-            'restaurant_image' => 'required:restaurant'
+            'restaurant_image' => 'required|image|max:512'
         ];
     }
 }
