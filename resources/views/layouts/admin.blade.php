@@ -34,7 +34,7 @@
 
         <header class="d-flex align-items-center text-dark-red fw-bold sticky-top flex-md-nowrap py-4 shadow-sm">
             <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="{{ url('/') }}"><img class="img-fluid"
-                    src="{{asset('/img/deliveboo-logo.png')}}" alt="deliveboo-logo"></a>
+                    src="{{ asset('/img/deliveboo-logo.png') }}" alt="deliveboo-logo"></a>
             <ul class="navbar-nav ml-auto pe-4 ms-auto">
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -43,8 +43,9 @@
                     </a>
 
                     <ul class=" dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ url('admin') }}">{{__('Dashboard')}}</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        <a class="dropdown-item" href="{{ url('admin') }}">{{ __('Dashboard') }}</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
@@ -71,7 +72,7 @@
                                 </a>
                             </li>
                             <li class="nav-item pt-1">
-                                <a class="nav-link" href="{{route('admin.plates.index')}}">
+                                <a class="nav-link" href="{{ route('admin.plates.index') }}">
                                     <span data-feather="file" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-utensils pe-2"></i>
                                     Menu
@@ -85,7 +86,7 @@
                                 </a>
                             </li>
                             <li class="nav-item pt-1">
-                                <a class="nav-link" href="{{route('admin.orders.index')}}">
+                                <a class="nav-link" href="{{ route('admin.orders.index') }}">
                                     <span data-feather="file" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-utensils pe-2"></i>
                                     Riepilogo ordini
@@ -104,7 +105,7 @@
                 </nav>
                 <!-- nav -->
 
-                <main class="col-md-9 ms-sm-auto col-lg-10 pt-5">
+                <main class="col-md-9 ms-sm-auto col-lg-10">
                     @yield('content')
                 </main>
             </div>
