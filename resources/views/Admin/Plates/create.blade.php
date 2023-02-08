@@ -4,7 +4,7 @@
 <div class="container p-3">
 
 
-    <h1 class="text-center">Complete the form to add a new Data</h1>
+    <h1 class="text-center">Completa il form per aggiungere un nuovo piatto</h1>
     @include('partials.error')
     <form action="{{ route('admin.plates.store') }}" method="post" enctype="multipart/form-data">
         @csrf
@@ -17,7 +17,7 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="plate_image" class="form-label">Plate image</label>
+            <label for="plate_image" class="form-label">Immagine</label>
             <input type="file" class="form-control @error('plate_image') is-invalid @enderror" id="plate_image"
                 name="plate_image" value="{{ old('plate_image') }}">
             @error('plate_image')
@@ -25,7 +25,7 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="description">Plate description</label>
+            <label for="description">Descrizione del piatto</label>
             <textarea class="form-control @error('description') is-invalid @enderror" placeholder="Leave a description"
                 id="description" name="description" style="height: 150px">{{ old('description') }}</textarea>
             @error('description')
@@ -33,7 +33,7 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="ingredients" class="form-label">Ingredients</label>
+            <label for="ingredients" class="form-label">Ingredienti del piatto</label>
             <input type="ingredients" class="form-control @error('ingredients') is-invalid @enderror" id="ingredients"
                 name="ingredients" value="{{ old('ingredients') }}">
             @error('ingredients')
@@ -42,7 +42,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="price" class="form-label">Plate price</label>
+            <label for="price" class="form-label">Prezzo del piatto</label>
             <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price"
                 value="{{ old('price') }}">
             @error('price')
@@ -51,22 +51,27 @@
         </div>
 
         <div class="mb-3">
-            <label for="visibility" class="form-label">Plate visibility</label>
-            <input type="text" class="form-control @error('visibility') is-invalid @enderror" id="visibility"
+            <label for="visibility" class="form-label">Visibilità del piatto</label>
+            <input type="number" placeholder="0 per non mostrare il piatto nel menù, 1 per mostrarlo." class="form-control @error('visibility') is-invalid @enderror" id="visibility"
                 name="visibility" value="{{ old('visibility') }}">
             @error('visibility')
             <small id="visibilityHlper" class="text-danger">{{ $message }}</small>
             @enderror
         </div>
 
-        <div class="mb-3">
-            <label for="type" class="form-label">Plate type</label>
-            <input type="text" class="form-control @error('type') is-invalid @enderror" id="type" name="type"
-                value="{{ old('type') }}">
-            @error('type')
-            <small id="typeHlper" class="text-danger">{{ $message }}</small>
-            @enderror
+       <div class="mb-3"> 
+            <label for="type" class="form-label">Tipologia del piatto <strong class="text-danger">*</strong></label>
+            <select class="form-select form-select-lg " name="type"
+                id="type" required>
+                <option value="" selected disabled>Seleziona la tipologia del piatto </option>               
+                <option value="antipasto">Antipasto</option>
+                <option value="primo">Primo</option>
+                <option value="secondo">Secondo</option>
+                <option value="dolce">Dolce</option>
+            </select>
         </div>
+
+    
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
