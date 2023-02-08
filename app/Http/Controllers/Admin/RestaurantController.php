@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Validator;
+use App\Models\Type;
 
 class RestaurantController extends Controller
 {
@@ -31,7 +32,8 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        return view('admin.restaurants.create');
+        $types = Type::all();
+        return view('admin.restaurants.create', compact('types'));
     }
 
     /**
@@ -49,6 +51,7 @@ class RestaurantController extends Controller
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         $restaurant = Restaurant::create($data);
+        $restaurant->types()->attach($request['type_id']);
         return to_route('admin.dashboard');
     }
 
