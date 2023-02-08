@@ -3,11 +3,12 @@
 
 body{
     background-color: #FFBD59;
+    font-family: 'Roboto', sans-serif;
 }
 
 //header_nav//---------
 header, #sidebarMenu{
-    background-color: #F6EDDA;
+    background-color: #FFFFFF;
     font-family: 'League Spartan', sans-serif;
     height: 80px;
 }
@@ -30,7 +31,8 @@ header, #sidebarMenu{
     color:transparent;
 }
 .sidebar-sticky .nav-item:hover{
-    background-color: #FFBD59;
+ background-color:#FFBD59;
+    font-family: 'League Spartan', sans-serif;
     padding-top: 0.5rem;
 }
 
@@ -49,6 +51,7 @@ transition: 0.5s;
 
 .btn_add{
     background-color: #f7af42;
+    border: 1px solid #f7af42;
     color: #F6EDDA;
     box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%)
 }
@@ -64,6 +67,12 @@ transition: 0.5s;
     color: #F6EDDA;
     box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%)
 }
+.btn_add:hover{
+    background-color: #FFBD59;
+    border: 1px solid #FFBD59;
+    color: #F6EDDA;
+ 
+ }
 .btn-secondary:hover{
    background-color: #85898d;
    border: 1px solid #85898d;
@@ -85,11 +94,37 @@ transition: 0.5s;
     color: #8EA61D;
 }
 
+.text_dark_red{
+    color: #b44933;
+}
+
 .background{
     background-image: url(../../../back_office_deliveboo/public/img/deliveroo-pattern.png);
 height: calc( 100vh - 80px );
 }
 
+.background-log-reg{
+
+    background-image: url(../../../back_office_deliveboo/public/img/table-food.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc( 100vh - 80px );
+}
+
+//form//---------
+
+.form-check-input:checked {
+    background-color: #f7af42;
+    border-color: #f7af42;
+}
+.background-log-reg .form-control{
+    background-color: #F6EDDA;
+    border-radius: 30px;
+    border: none;
+    font-size: 20px;
+    padding: 0.8rem 1.4rem;
+}
+//end_form//---------
 
 
 
