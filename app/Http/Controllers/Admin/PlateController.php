@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePlateRequest;
 use App\Http\Requests\UpdatePlateRequest;
 use App\Models\Plate;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -20,8 +22,9 @@ class PlateController extends Controller
      */
     public function index()
     {
-        $plates = DB::table('plates')->paginate(5);
-
+        $auth_user = Auth::user()->id;
+        $user_id = Restaurant::find($auth_user)->user_id;
+        $plates = DB::table('plates')->where('restaurant_id', '=', $user_id)->paginate(6);
         return view('Admin.Plates.index', compact('plates'));
     }
 
@@ -43,21 +46,12 @@ class PlateController extends Controller
      */
     public function store(StorePlateRequest $request)
     {
-
-        //dd($request);
         $val_data = $request->validated();
         if ($request->hasFile('plate_image')) {
             $plate_image = Storage::disk('public')->put('uploads', $val_data['plate_image']);
             $val_data['plate_image'] = $plate_image;
         }
         $plate = Plate::create($val_data);
-
-        //Many to many relationship
-        // if ($request->has('technologies')) {
-        //     $plate->technologies()->attach($val_data['technologies']);
-        // }
-
-
         return to_route('admin.plates.index')->with('message', "Project added successfully");
     }
 
@@ -103,14 +97,6 @@ class PlateController extends Controller
 
 
         $plate->update($val_data);
-
-        //Many to many relationship
-        //if ($request->has('technologies')) {
-        //$plate->technologies()->sync($val_data['technologies']);
-        //} else {
-        //$plate->technologies()->sync([]);
-        //}
-
         return to_route('admin.plates.index')->with('message', "Project updated successfully");
     }
 
@@ -122,6 +108,12 @@ class PlateController extends Controller
      */
     public function destroy(Plate $plate)
     {
-        //
+        if ($plate->cover_image) {
+            Storage::delete($plate->cover_image);
+        }
+
+
+        $plate->delete();
+        return to_route('admin.plates.index')->with('message', "Data deleted successfully");
     }
 }
