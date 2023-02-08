@@ -44,14 +44,16 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
+        $user_restaurant = Restaurant::where('user_id', Auth::user()->id)->exists();
+        if ($user_restaurant) {
+            return to_route('admin.dashboard')->with('message', "Non puoi aggiungere un altro ristorante!");
+        } else {
+            $val_data = $request->validated();
+            $val_data['user_id'] = Auth::user()->id;
+            $restaurant = Restaurant::create($val_data);
+            $restaurant->types()->attach($request['type_id']);
+        }
 
-        // $val_data = $request->all();
-        // $val_data['user_id'] = Auth::user()->id;
-        // $val_data->validated();
-        $data = $request->all();
-        $data['user_id'] = Auth::user()->id;
-        $restaurant = Restaurant::create($data);
-        $restaurant->types()->attach($request['type_id']);
         return to_route('admin.dashboard');
     }
 
