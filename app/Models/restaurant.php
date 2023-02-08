@@ -16,6 +16,16 @@ class Restaurant extends Model
 
 
     /**
+     * Get the user that owns the restaurant
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
