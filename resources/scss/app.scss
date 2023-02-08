@@ -40,17 +40,22 @@ header,
     background-color: $primary;
     padding-top: 0.5rem;
 }
-
-.nav-link:hover {
-    color: $green;
+.sidebar-sticky .nav-link:hover {
     padding-left: 50px;
     transition: 0.5s;
 }
-
-.nav-link:hover .fa-solid {
+.sidebar-sticky .nav-link:hover .fa-solid {
     color: $green;
     transition: 0.5s;
 }
+
+ .nav-link:hover{
+    color: $green;
+
+}
+
+
+
 //end_header_nav//---------
 
 //buttons//---------
