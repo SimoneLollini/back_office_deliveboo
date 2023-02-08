@@ -122,6 +122,14 @@ class PlateController extends Controller
      */
     public function destroy(Plate $plate)
     {
-        //
+        if ($plate->cover_image) {
+            Storage::delete($plate->cover_image);
+        }
+
+
+        $plate->delete();
+
+
+        return to_route('admin.plates.index')->with('message', "Data deleted successfully");
     }
 }
