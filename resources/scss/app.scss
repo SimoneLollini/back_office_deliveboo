@@ -10,7 +10,6 @@ body {
 header,
 #sidebarMenu {
     background-color: $light_grey;
-
     font-family: 'League Spartan', sans-serif;
     height: 80px;
 }
@@ -74,21 +73,24 @@ header,
     color: $light_grey;
     box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%)
 }
-.btn_add:hover{
+
+.btn_add:hover {
     background-color: #FFBD59;
     border: 1px solid #FFBD59;
     color: #F6EDDA;
- 
- }
-.btn-secondary:hover{
-   background-color: #85898d;
-   border: 1px solid #85898d;
-   color: #F6EDDA;
+
+}
 
 .btn-secondary:hover {
-    background-color: $grey;
-    border: 1px solid $grey;
-    color: $light_grey;
+    background-color: #85898d;
+    border: 1px solid #85898d;
+    color: #F6EDDA;
+
+    .btn-secondary:hover {
+        background-color: $grey;
+        border: 1px solid $grey;
+        color: $light_grey;
+    }
 
 }
 
@@ -102,18 +104,21 @@ header,
     color: $light_grey;
 }
 
- .btn_edit:hover{
+.btn_edit:hover {
     background-color: #a6c22a;
     color: #F6EDDA;
- }
- .btn_delete:hover{
+}
+
+.btn_delete:hover {
     background-color: #b44933;
     color: #F6EDDA;
- }
-.reg{
-       width: fit-content; 
 }
-.reg:hover{
+
+.reg {
+    width: fit-content;
+}
+
+.reg:hover {
     text-decoration: underline;
 }
 
@@ -124,21 +129,21 @@ header,
 }
 
 
-.text_dark_red{
+.text_dark_red {
     color: #b44933;
 }
 
-.background{
+.background {
     background-image: url(../../../back_office_deliveboo/public/img/deliveroo-pattern.png);
     height: calc(100vh - 80px);
 }
 
-.background-log-reg{
+.background-log-reg {
 
     background-image: url(../../../back_office_deliveboo/public/img/table-food.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: calc( 100vh - 80px );
+    height: calc(100vh - 80px);
 }
 
 //form//---------
@@ -147,18 +152,19 @@ header,
     background-color: #f7af42;
     border-color: #f7af42;
 }
-.background-log-reg .form-control{
+
+.background-log-reg .form-control {
     background-color: #F6EDDA;
     border-radius: 30px;
     border: none;
     font-size: 20px;
     padding: 0.8rem 1.4rem;
 }
+
 //end_form//---------
 
 .background_form {
     background-color: $light_grey;
-
 
     input,
     select {
