@@ -30,6 +30,7 @@ class StoreRestaurantRequest extends FormRequest
             'piva' => 'required|max:12',
             'address' => 'required',
             'user_id' => 'unique:restaurant',
+            'restaurant_image' => 'required:restaurant'
         ];
     }
 }
