@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('restaurants', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 150)->require();
-            $table->string('phone', 12)->required();
-            $table->string('piva', 12)->require()->unique();
-            $table->string('address', 250)->require();
-            $table->timestamps();
+        Schema::table('restaurants', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id')->unique()->nullable()->after('id');
+            $table->foreign('user_id')->references('id')->on('restaurants');
         });
     }
 
@@ -30,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('restaurants');
+        Schema::table('restaurants', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
     }
 };
