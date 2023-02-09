@@ -44,8 +44,7 @@
 
                     <ul class=" dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ url('admin') }}">{{ __('Dashboard') }}</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
@@ -61,6 +60,7 @@
 
         <div class="container-fluid">
             <div class="row">
+                @if ($user_restaurant)
                 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block px-0 sidebar collapse">
                     <div class="pt-3 sidebar-sticky">
                         <ul class="nav flex-column text-uppercase">
@@ -103,11 +103,17 @@
                         </ul>
                     </div>
                 </nav>
+                @endif
                 <!-- nav -->
-
+                @if($user_restaurant)
                 <main class="col-md-9 ms-sm-auto col-lg-10">
                     @yield('content')
                 </main>
+                @else
+                <main class="p-0">
+                    @yield('content')
+                </main>
+                @endif
             </div>
         </div>
 

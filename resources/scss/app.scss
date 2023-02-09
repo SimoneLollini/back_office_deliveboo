@@ -9,7 +9,7 @@ body {
 //header_nav//---------
 header,
 #sidebarMenu {
-    background-color: $light_grey;
+    background-color: $white;
     font-family: 'League Spartan', sans-serif;
     height: 80px;
 }
@@ -40,97 +40,78 @@ header,
     background-color: $primary;
     padding-top: 0.5rem;
 }
-
-.nav-link:hover {
-    color: $green;
+.sidebar-sticky .nav-link:hover {
     padding-left: 50px;
     transition: 0.5s;
 }
-
-.nav-link:hover .fa-solid {
+.sidebar-sticky .nav-link:hover .fa-solid {
     color: $green;
     transition: 0.5s;
 }
+
+ .nav-link:hover{
+    color: $green;
+
+}
+
+
 
 //end_header_nav//---------
 
 //buttons//---------
-
 .btn_add {
     background-color: $darker_primary;
     color: $light_grey;
-    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%)
+    border: 1px solid $darker_primary;
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%);
+    &:hover {
+    background-color: $primary;
+    border: 1px solid $primary;
+    color: $light_grey;
+}
 }
 
 .btn_edit {
     background-color: $green;
     color: $light_grey;
-    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%)
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%);
+    &:hover {
+    background-color: $light_green;
+    color: $light_grey;
+}
 }
 
 .btn_delete {
     background-color: $dark_red;
     color: $light_grey;
-    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%)
-}
-
-.btn_add:hover {
-    background-color: #FFBD59;
-    border: 1px solid #FFBD59;
-    color: #F6EDDA;
-
-}
-
-.btn-secondary:hover {
-    background-color: #85898d;
-    border: 1px solid #85898d;
-    color: #F6EDDA;
-
-    .btn-secondary:hover {
-        background-color: $grey;
-        border: 1px solid $grey;
-        color: $light_grey;
-    }
-
-}
-
-.btn_edit:hover {
-    background-color: $light_green;
-    color: $light_grey;
-}
-
-.btn_delete:hover {
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%);
+    &:hover {
     background-color: $light_red;
     color: $light_grey;
 }
-
-.btn_edit:hover {
-    background-color: #a6c22a;
-    color: #F6EDDA;
 }
 
-.btn_delete:hover {
-    background-color: #b44933;
-    color: #F6EDDA;
+.btn-secondary:hover {
+    background-color: $grey;
+    border: 1px solid $grey;
+    color: $light_grey;
 }
 
 .reg {
     width: fit-content;
-}
 
-.reg:hover {
+&:hover {
     text-decoration: underline;
 }
-
+}
 //end_buttons//---------
 
 .text_green {
     color: #8EA61D;
 }
 
-
 .text_dark_red {
-    color: #b44933;
+    color: $light_red;
 }
 
 .background {
@@ -147,21 +128,18 @@ header,
 }
 
 //form//---------
-
 .form-check-input:checked {
-    background-color: #f7af42;
-    border-color: #f7af42;
+    background-color: $darker_primary;
+    border-color: $darker_primary;
 }
 
 .background-log-reg .form-control {
-    background-color: #F6EDDA;
+    background-color: $light_grey;
     border-radius: 30px;
     border: none;
     font-size: 20px;
     padding: 0.8rem 1.4rem;
 }
-
-//end_form//---------
 
 .background_form {
     background-color: $light_grey;
@@ -171,6 +149,11 @@ header,
         border: 1px solid $dark_red;
     }
 }
+
+.required_field{
+    width: fit-content;
+}
+//end_form//---------
 
 .ms_row {
     background-color: $light_grey;
