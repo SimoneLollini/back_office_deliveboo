@@ -11,7 +11,7 @@ class Plate extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'ingredients', 'description', 'plate_image', 'price', 'visibility', 'type'];
+    protected $fillable = ['name', 'ingredients', 'description', 'plate_image', 'price', 'visibility', 'type', 'restaurant_id'];
 
     /**
      * Get the restaurant that owns the Plate

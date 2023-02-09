@@ -23,7 +23,7 @@ class PlateController extends Controller
     public function index()
     {
         $auth_user = Auth::user()->id;
-         $user_restaurant = Restaurant::find(Auth::id());
+        $user_restaurant = Restaurant::find(Auth::id());
         $user_id = Restaurant::find($auth_user)->user_id;
         $plates = DB::table('plates')->where('restaurant_id', '=', $user_id)->paginate(6);
         return view('Admin.Plates.index', compact('plates', 'user_restaurant'));
@@ -48,7 +48,12 @@ class PlateController extends Controller
      */
     public function store(StorePlateRequest $request)
     {
+
+        $request['restaurant_id'] = Auth::id();
         $val_data = $request->validated();
+
+        $val_data['restaurant_id'] = Auth::id();
+
         if ($request->hasFile('plate_image')) {
             $plate_image = Storage::disk('public')->put('uploads', $val_data['plate_image']);
             $val_data['plate_image'] = $plate_image;
