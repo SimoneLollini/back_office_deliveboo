@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 150)->require();
             $table->string('phone', 12)->required();
-            $table->string('piva', 12)->require()->unique();
+            $table->string('piva', 11)->require()->unique();
             $table->string('address', 250)->require();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
