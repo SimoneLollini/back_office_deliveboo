@@ -52,7 +52,7 @@
 
         <div class="mb-3">
             <label for="phone" class="form-label">Numero di telefono <strong class="text-danger">*</strong></label>
-            <input type="text" phone="phone" id="phone" class="form-control @error('phone') is-invalid @enderror"
+            <input type="text" name="phone" id="phone" class="form-control @error('phone') is-invalid @enderror"
                 placeholder="add phone" value="{{ old('phone', $restaurant->phone) }}">
         </div>
         @error('phone')
@@ -63,7 +63,7 @@
 
         <div class="mb-3">
             <label for="piva" class="form-label">P.IVA <strong class="text-danger">*</strong></label>
-            <input type="text" piva="piva" id="piva" class="form-control @error('piva') is-invalid @enderror"
+            <input type="text" name="piva" id="piva" class="form-control @error('piva') is-invalid @enderror"
                 placeholder="add piva" value="{{ old('piva', $restaurant->piva) }}">
         </div>
         @error('piva')
@@ -74,9 +74,8 @@
 
         <div class="mb-3">
             <label for="address" class="form-label">Indirizzo <strong class="text-danger">*</strong></label>
-            <input type="text" address="address" id="address"
-                class="form-control @error('address') is-invalid @enderror" placeholder="add address"
-                value="{{ old('address', $restaurant->address) }}">
+            <input type="text" name="address" id="address" class="form-control @error('address') is-invalid @enderror"
+                placeholder="add address" value="{{ old('address', $restaurant->address) }}">
         </div>
         @error('address')
         <div class="alert alert-danger">{{ $message }}</div>

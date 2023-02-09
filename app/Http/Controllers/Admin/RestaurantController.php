@@ -106,9 +106,9 @@ class RestaurantController extends Controller
            $val_data['restaurant_image'] = $restaurant_image;
            $val_data['user_id'] = Auth::user()->id;
            $restaurant->update($val_data);
-           $restaurant->types()->sync($val_data['type']);
+           $restaurant->types()->sync($val_data['type_id']);
         }  
-        return to_route('admin.restaurants.index')->with('message', "$restaurant->title modficato con successo");
+        return to_route('admin.dashboard')->with('message', "$restaurant->title modficato con successo");
     }
 
     /**
