@@ -53,9 +53,6 @@ header,
     color: $green;
 
 }
-
-
-
 //end_header_nav//---------
 
 //buttons//---------
@@ -103,6 +100,9 @@ header,
 &:hover {
     text-decoration: underline;
 }
+}
+.btn_fit{
+    width: fit-content;
 }
 //end_buttons//---------
 

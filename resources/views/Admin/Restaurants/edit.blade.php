@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="container">
-    <h1 class="py-5">Modifica i dati del tuo ristorante</h1>
+<div class="container p-3">
+    <h1 class="text-dark-red text-center p-5"><strong>Modifica i dati del tuo ristorante</strong></h1>
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -12,8 +12,8 @@
         </ul>
     </div>
     @endif
-    <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" method="post" class="card p-3"
-        enctype="multipart/form-data">
+    <form action="{{ route('admin.restaurants.update', $restaurant->id) }}" method="post"
+        class="card card rounded-5 border-0 p-5" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
