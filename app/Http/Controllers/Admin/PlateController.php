@@ -54,9 +54,7 @@ class PlateController extends Controller
         if ($request->hasFile('plate_image')) {
             $plate_image = Storage::disk('public')->put('uploads', $val_data['plate_image']);
             $val_data['plate_image'] = $plate_image;
-        }
-        
-        
+        }     
         
         if (array_key_exists("visibility", $val_data) and $val_data['visibility'] = 1) {
             $val_data['visibility'] = true;
@@ -70,9 +68,9 @@ class PlateController extends Controller
         // if ($request->has('technologies')) {
         //     $plate->technologies()->attach($val_data['technologies']);
         // }
+  
+        return to_route('admin.plates.index')->with('message', "Piatto aggiunto correttamente");
 
-
-        return to_route('admin.plates.index')->with('message', "Project added successfully");
     }
 
     /**

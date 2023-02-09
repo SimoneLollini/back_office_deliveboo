@@ -26,7 +26,7 @@
         </div>
         <div class="mb-3">
             <label for="description">Descrizione del piatto</label>
-            <textarea class="form-control @error('description') is-invalid @enderror" placeholder="Leave a description"
+            <textarea class="mt-2 form-control @error('description') is-invalid @enderror" placeholder="Leave a description"
                 id="description" name="description" style="height: 150px">{{ old('description') }}</textarea>
             @error('description')
             <small id="descriptionHlper" class="text-danger">{{ $message }}</small>
@@ -65,9 +65,7 @@
                 <option value="dolce">Dolce</option>
             </select>
         </div>
-
-
-        <button type="submit" class=" red rounded border-0 text-light">Submit</button>
+        <button type="submit" class="rounded text-light fw-bold border-0 red">Submit</button>
     </form>
 </div>
 @endsection

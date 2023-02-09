@@ -26,7 +26,7 @@
         </thead>
         <tbody>
             @foreach ($plates as $plate)
-            <tr>
+            <tr class="text-center">
                 <th scope='row'>{{ $plate->id }}</th>
                 <td>
                     @if ($plate->plate_image)
@@ -40,7 +40,7 @@
                 <td>{{ $plate->name }}</td>
                 <td>{{ $plate->ingredients }}</td>
                 <td>{{ $plate->description }}</td>
-                <td>{{ $plate->price }}</td>
+                <td>€ {{ $plate->price }}</td>
                 <td>
                 @if($plate->visibility == 1)  
                 <span class="circle green">⬤</span>
@@ -49,7 +49,7 @@
                 <span class="circle red">⬤</span>
                 @endif
                 </td>
-                    <td>{{ $plate->type }}</td>
+                <td>{{ $plate->type }}</td>
                 <td>
                     <div class='d-flex flex-column'>
                         <div>
