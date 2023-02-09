@@ -41,8 +41,15 @@
                 <td>{{ $plate->ingredients }}</td>
                 <td>{{ $plate->description }}</td>
                 <td>{{ $plate->price }}</td>
-                <td>{{ $plate->visibility }}</td>
-                <td>{{ $plate->type }}</td>
+                <td>
+                @if($plate->visibility == 1)  
+                <span class="circle green">⬤</span>
+                @endif
+                @if($plate->visibility == 0)  
+                <span class="circle red">⬤</span>
+                @endif
+                </td>
+                    <td>{{ $plate->type }}</td>
                 <td>
                     <div class='d-flex flex-column'>
                         <div>
@@ -71,3 +78,17 @@
     <div class="row">{{ $plates->links() }}</div>
 </div>
 @endsection
+
+<style lang="scss">
+    .circle{
+        font-size: 2rem;
+    }
+    .green{
+        color: green;
+    }
+    .red{
+        color: red;
+    }
+
+
+</style>

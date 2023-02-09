@@ -51,13 +51,8 @@
         </div>
 
         <div class="mb-3">
-            <label for="visibility" class="form-label">Visibilità del piatto</label>
-            <input type="number" placeholder="0 per non mostrare il piatto nel menù, 1 per mostrarlo."
-                class="form-control @error('visibility') is-invalid @enderror" id="visibility" name="visibility"
-                value="{{ old('visibility') }}">
-            @error('visibility')
-            <small id="visibilityHlper" class="text-danger">{{ $message }}</small>
-            @enderror
+            <label for="visibility">Visibilità del piatto</label> <br>
+            <input class="checkbox" type="checkbox" name="visibility" id="visibility" >
         </div>
 
         <div class="mb-3">
