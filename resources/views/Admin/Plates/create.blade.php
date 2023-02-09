@@ -44,7 +44,7 @@
         <div class="mb-3">
             <label for="price" class="form-label">Prezzo del piatto</label>
             <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price"
-                value="{{ old('price') }}">
+                value="{{ old('price') }}" step="0.01">
             @error('price')
             <small id="priceHlper" class="text-danger">{{ $message }}</small>
             @enderror
@@ -52,18 +52,18 @@
 
         <div class="mb-3">
             <label for="visibility" class="form-label">Visibilità del piatto</label>
-            <input type="number" placeholder="0 per non mostrare il piatto nel menù, 1 per mostrarlo." class="form-control @error('visibility') is-invalid @enderror" id="visibility"
-                name="visibility" value="{{ old('visibility') }}">
+            <input type="number" placeholder="0 per non mostrare il piatto nel menù, 1 per mostrarlo."
+                class="form-control @error('visibility') is-invalid @enderror" id="visibility" name="visibility"
+                value="{{ old('visibility') }}">
             @error('visibility')
             <small id="visibilityHlper" class="text-danger">{{ $message }}</small>
             @enderror
         </div>
 
-       <div class="mb-3"> 
+        <div class="mb-3">
             <label for="type" class="form-label">Tipologia del piatto <strong class="text-danger">*</strong></label>
-            <select class="form-select form-select-lg " name="type"
-                id="type" required>
-                <option value="" selected disabled>Seleziona la tipologia del piatto </option>               
+            <select class="form-select form-select-lg " name="type" id="type" required>
+                <option value="" selected disabled>Seleziona la tipologia del piatto </option>
                 <option value="antipasto">Antipasto</option>
                 <option value="primo">Primo</option>
                 <option value="secondo">Secondo</option>
@@ -71,7 +71,7 @@
             </select>
         </div>
 
-    
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

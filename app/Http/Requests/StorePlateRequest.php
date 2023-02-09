@@ -30,6 +30,8 @@ class StorePlateRequest extends FormRequest
             'restaurant_id' => 'nullable',
             'description' => 'nullable',
             'ingredients' => 'nullable',
+            'price' => 'nullable',
+            'visibility' => 'nullable',
             'type' => 'nullable'
         ];
     }

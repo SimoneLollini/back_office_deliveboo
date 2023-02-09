@@ -79,7 +79,7 @@
                                 </a>
                             </li>
                             <li class="nav-item pt-1">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{route('admin.plates.create')}}">
                                     <span data-feather="file" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-utensils pe-2"></i>
                                     Nuovo piatto
@@ -92,14 +92,6 @@
                                     Riepilogo ordini
                                 </a>
                             </li>
-                            <li class="nav-item pt-1">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="file" class="align-text-bottom"></span>
-                                    <i class="fa-solid fa-utensils pe-2"></i>
-                                    La tua cucina
-                                </a>
-                            </li>
-
                         </ul>
                     </div>
                 </nav>

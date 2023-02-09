@@ -81,7 +81,8 @@ class PlateController extends Controller
      */
     public function edit(Plate $plate)
     {
-        return view('admin.plates.edit', compact('plate'));
+        $user_restaurant = Restaurant::find(Auth::id());
+        return view('admin.plates.edit', compact('plate', 'user_restaurant'));
     }
 
     /**
@@ -93,6 +94,7 @@ class PlateController extends Controller
      */
     public function update(UpdatePlateRequest $request, Plate $plate)
     {
+        $user_restaurant = Restaurant::find(Auth::id());
         $val_data = $request->validated();
         if ($request->hasFile('plate_image')) {
             if ($plate->plate_image) {
