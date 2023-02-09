@@ -67,7 +67,20 @@
         </div>
 
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class=" red rounded border-0 text-light">Submit</button>
     </form>
 </div>
 @endsection
+
+<style lang="scss">
+.checkbox{
+    zoom: 4;
+    margin-top: 0.1rem;
+}
+
+.red{
+    background-color: #a43c28;
+    padding: 0.5rem 1rem;
+}
+
+</style>
