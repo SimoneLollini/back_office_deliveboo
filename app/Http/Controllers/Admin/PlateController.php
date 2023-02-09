@@ -49,18 +49,12 @@ class PlateController extends Controller
     public function store(StorePlateRequest $request)
     {
 
-        $request['restaurant_id'] = Auth::id();
+        //dd($request);
         $val_data = $request->validated();
-
-        $val_data['restaurant_id'] = Auth::id();
-
         if ($request->hasFile('plate_image')) {
             $plate_image = Storage::disk('public')->put('uploads', $val_data['plate_image']);
             $val_data['plate_image'] = $plate_image;
-        }
-
-        
-        
+        }     
         
         if (array_key_exists("visibility", $val_data) and $val_data['visibility'] = 1) {
             $val_data['visibility'] = true;
@@ -74,7 +68,7 @@ class PlateController extends Controller
         // if ($request->has('technologies')) {
         //     $plate->technologies()->attach($val_data['technologies']);
         // }
-   
+  
         return to_route('admin.plates.index')->with('message', "Piatto aggiunto correttamente");
 
     }

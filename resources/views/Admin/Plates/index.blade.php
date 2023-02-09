@@ -78,6 +78,7 @@
     <div class="row">{{ $plates->links() }}</div>
 </div>
 @endsection
+
 <style lang="scss">
     .circle{
         font-size: 2rem;
