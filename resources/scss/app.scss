@@ -1,96 +1,163 @@
+@use 'colors.scss' as *;
+
 @import '~bootstrap/scss/bootstrap';
 
-
-body{
-    background-color: #FFBD59;
+body {
+    background-color: $primary;
 }
 
 //header_nav//---------
-header, #sidebarMenu{
-    background-color: #F6EDDA;
+header,
+#sidebarMenu {
+    background-color: $white;
     font-family: 'League Spartan', sans-serif;
     height: 80px;
 }
+
 .dropdown-menu[data-bs-popper] {
     top: 100%;
     left: -75px;
 }
 
-#sidebarMenu{
-    height: 100% ;
+#sidebarMenu {
+    height: 100%;
     position: fixed;
     top: 3px;
     bottom: 0;
 }
 
-.text-dark-red, .nav-link{
-    color: #A43C28;
-}
-.fa-solid{
-    color:transparent;
-}
-.sidebar-sticky .nav-item:hover{
-    background-color: #FFBD59;
-    padding-top: 0.5rem;
+.text-dark-red,
+.nav-link {
+    color: $dark_red;
 }
 
-.nav-link:hover{
-    color: #8EA61D;
+.fa-solid {
+    color: transparent;
+}
+
+
+.sidebar-sticky .nav-item:hover {
+    background-color: $primary;
+    padding-top: 0.5rem;
+}
+.sidebar-sticky .nav-link:hover {
     padding-left: 50px;
     transition: 0.5s;
 }
-.nav-link:hover .fa-solid{
-color:#8EA61D;
-transition: 0.5s;
+.sidebar-sticky .nav-link:hover .fa-solid {
+    color: $green;
+    transition: 0.5s;
+}
+
+ .nav-link:hover{
+    color: $green;
+
 }
 //end_header_nav//---------
 
 //buttons//---------
-
-.btn_add{
-    background-color: #f7af42;
-    color: #F6EDDA;
-    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%)
+.btn_add {
+    background-color: $darker_primary;
+    color: $light_grey;
+    border: 1px solid $darker_primary;
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%);
+    &:hover {
+    background-color: $primary;
+    border: 1px solid $primary;
+    color: $light_grey;
+}
 }
 
-.btn_edit{
-    background-color: #8EA61D;
-    color: #F6EDDA;
-    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%)
+.btn_edit {
+    background-color: $green;
+    color: $light_grey;
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%);
+    &:hover {
+    background-color: $light_green;
+    color: $light_grey;
+}
 }
 
-.btn_delete{
-    background-color:#A43C28;
-    color: #F6EDDA;
-    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%)
+.btn_delete {
+    background-color: $dark_red;
+    color: $light_grey;
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%);
+    &:hover {
+    background-color: $light_red;
+    color: $light_grey;
 }
-.btn-secondary:hover{
-   background-color: #85898d;
-   border: 1px solid #85898d;
-   color: #F6EDDA;
-
 }
- .btn_edit:hover{
-    background-color: #a6c22a;
-    color: #F6EDDA;
- }
- .btn_delete:hover{
-    background-color: #b44933;
-    color: #F6EDDA;
- }
 
+.btn-secondary:hover {
+    background-color: $grey;
+    border: 1px solid $grey;
+    color: $light_grey;
+}
+
+.reg {
+    width: fit-content;
+
+&:hover {
+    text-decoration: underline;
+}
+}
+.btn_fit{
+    width: fit-content;
+}
 //end_buttons//---------
 
-.text_green{
+.text_green {
     color: #8EA61D;
 }
 
-.background{
-    background-image: url(../../../back_office_deliveboo/public/img/deliveroo-pattern.png);
-height: calc( 100vh - 80px );
+.text_dark_red {
+    color: $light_red;
 }
 
+.background {
+    background-image: url(../../../back_office_deliveboo/public/img/deliveroo-pattern.png);
+    height: calc(100vh - 80px);
+}
 
+.background-log-reg {
 
+    background-image: url(../../../back_office_deliveboo/public/img/table-food.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100vh - 80px);
+}
 
+//form//---------
+.form-check-input:checked {
+    background-color: $darker_primary;
+    border-color: $darker_primary;
+}
 
+.background-log-reg .form-control {
+    background-color: $light_grey;
+    border-radius: 30px;
+    border: none;
+    font-size: 20px;
+    padding: 0.8rem 1.4rem;
+}
+
+.background_form {
+    background-color: $light_grey;
+
+    input,
+    select {
+        border: 1px solid $dark_red;
+    }
+}
+
+.required_field{
+    width: fit-content;
+}
+//end_form//---------
+
+.ms_row {
+    background-color: $light_grey;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    border: 1px solid $dark_red;
+}
