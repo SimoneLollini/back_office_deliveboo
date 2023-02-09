@@ -26,7 +26,8 @@ class StorePlateRequest extends FormRequest
 
         return [
             'name' => 'required|unique:plates,name|min:5|max:150',
-            'plate_image' => 'nullable|image|max:300'
+            'plate_image' => 'nullable|image|max:300',
+            'visibility' => 'nullable'
         ];
     }
 }

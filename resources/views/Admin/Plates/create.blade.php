@@ -26,7 +26,7 @@
         </div>
         <div class="mb-3">
             <label for="description">Descrizione del piatto</label>
-            <textarea class="form-control @error('description') is-invalid @enderror" placeholder="Leave a description"
+            <textarea class="mt-2 form-control @error('description') is-invalid @enderror" placeholder="Leave a description"
                 id="description" name="description" style="height: 150px">{{ old('description') }}</textarea>
             @error('description')
             <small id="descriptionHlper" class="text-danger">{{ $message }}</small>
@@ -50,14 +50,19 @@
             @enderror
         </div>
 
-        <div class="mb-3">
+       <!--  <div class="mb-3">
             <label for="visibility" class="form-label">Visibilità del piatto</label>
             <input type="number" placeholder="0 per non mostrare il piatto nel menù, 1 per mostrarlo." class="form-control @error('visibility') is-invalid @enderror" id="visibility"
                 name="visibility" value="{{ old('visibility') }}">
             @error('visibility')
             <small id="visibilityHlper" class="text-danger">{{ $message }}</small>
             @enderror
-        </div>
+        </div> -->
+
+        <div class="mb-3">
+            <label for="visibility">Visibilità del piatto</label> <br>
+            <input class="checkbox" type="checkbox" name="visibility" id="visibility" >
+        </div> 
 
        <div class="mb-3"> 
             <label for="type" class="form-label">Tipologia del piatto <strong class="text-danger">*</strong></label>
@@ -72,7 +77,20 @@
         </div>
 
     
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="rounded text-light fw-bold border-0 red">Submit</button>
     </form>
 </div>
 @endsection
+
+<style lang="scss">
+.checkbox{
+    zoom: 4;
+    margin-top: 0.1rem;
+}
+
+.red{
+    background-color: #a43c28;
+    padding: 0.5rem 1rem;
+}
+
+</style>
