@@ -23,9 +23,10 @@ class PlateController extends Controller
     public function index()
     {
         $auth_user = Auth::user()->id;
+         $user_restaurant = Restaurant::find(Auth::id());
         $user_id = Restaurant::find($auth_user)->user_id;
         $plates = DB::table('plates')->where('restaurant_id', '=', $user_id)->paginate(6);
-        return view('Admin.Plates.index', compact('plates'));
+        return view('Admin.Plates.index', compact('plates', 'user_restaurant'));
     }
 
     /**
@@ -35,7 +36,8 @@ class PlateController extends Controller
      */
     public function create()
     {
-        return view('Admin.Plates.create');
+        $user_restaurant = Restaurant::find(Auth::id());
+        return view('Admin.Plates.create', compact('user_restaurant'));
     }
 
     /**
@@ -52,7 +54,7 @@ class PlateController extends Controller
             $val_data['plate_image'] = $plate_image;
         }
         $plate = Plate::create($val_data);
-        return to_route('admin.plates.index')->with('message', "Project added successfully");
+        return to_route('admin.plates.index')->with('message', "Piatto aggiunto correttamente");
     }
 
     /**
