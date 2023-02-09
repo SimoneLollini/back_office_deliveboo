@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<a class="btn btn-primary" href="{{ route('admin.restaurants.index') }}" role="button"><i
-        class="fas fa-angle-left fa-fw"></i></a>
+
 <div class="container">
     <h1 class="py-5">Modifica i dati del tuo ristorante</h1>
     @if ($errors->any())
