@@ -34,6 +34,10 @@
             <p> <strong>Il tuo indirizzo:</strong> {{ $user_restaurant->address }}</p>
 
         </div>
+
+        <a href="{{ route('admin.restaurants.edit', $user_restaurant->id) }}" type="button"
+            class='btn btn_edit'>Modifica
+            dati ristorante</a>
     </div>
 </div>
 @else
@@ -95,7 +99,7 @@
             {{-- SEPARATORE --}}
 
             <div class="mb-3">
-                <label for="piva" class="form-label">Partita IVA <strong class="text-danger">*</strong></label>
+                <label for="piva" class="form-label">P.IVA <strong class="text-danger">*</strong></label>
                 <input type="text" name="piva" id="piva" class="form-control @error('piva') is-invalid @enderror"
                     placeholder="Aggiungi piva" value="{{ old('piva') }}" required>
             </div>

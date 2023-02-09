@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Validator;
 use App\Models\Type;
+use App\Http\Requests\UpdateRestaurantRequest;
 
 class RestaurantController extends Controller
 {
@@ -81,7 +82,9 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        return view('admin.restaurants.edit', compact('restaurant'));
+        $user_restaurant = Restaurant::find(Auth::id());
+        $types = Type::all();
+        return view('admin.restaurants.edit', compact('restaurant', 'types', 'user_restaurant'));
     }
 
     /**
@@ -91,10 +94,21 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($request, Restaurant $restaurant)
+    public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
-
-        return to_route('admin.restaurants.index')->with('message', "$restaurant->title update successfully");
+        $user_restaurant = Restaurant::find(Auth::id());
+        $val_data = $request->validated();
+        if ($request->hasFile('restaurant_image')) {
+            if($restaurant->restaurant_image){
+                Storage::delete($restaurant->restaurant_image);
+            }
+            $restaurant_image = Storage::disk('public')->put('uploads', $val_data['restaurant_image']);
+           $val_data['restaurant_image'] = $restaurant_image;
+           $val_data['user_id'] = Auth::user()->id;
+           $restaurant->update($val_data);
+           $restaurant->types()->sync($val_data['type']);
+        }  
+        return to_route('admin.restaurants.index')->with('message', "$restaurant->title modficato con successo");
     }
 
     /**
@@ -107,6 +121,9 @@ class RestaurantController extends Controller
     {
         if ($restaurant->id) {
             Storage::delete($restaurant->id);
+            if($restaurant->restaurant_image){
+                Storage::delete($restaurant->restaurant_image);
+            }
         }
         $restaurant->delete();
         return to_route('admin.restaurants.index')->with('message', "$restaurant->name deleted successfully");
