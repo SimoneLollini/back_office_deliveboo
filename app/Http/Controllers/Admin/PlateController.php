@@ -93,7 +93,11 @@ class PlateController extends Controller
     public function edit(Plate $plate)
     {
         $user_restaurant = Restaurant::find(Auth::id());
-        return view('admin.plates.edit', compact('plate', 'user_restaurant'));
+        if (Auth::id() === $plate->restaurant_id) {
+            return view('admin.plates.edit', compact('plate', 'user_restaurant'));
+        } else {
+            return to_route('admin.dashboard')->withErrors(['Operazione non autorizzata!']);
+        }
     }
 
     /**
