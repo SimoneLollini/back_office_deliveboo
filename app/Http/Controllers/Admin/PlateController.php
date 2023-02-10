@@ -135,8 +135,6 @@ class PlateController extends Controller
         if ($plate->cover_image) {
             Storage::delete($plate->cover_image);
         }
-
-
         $plate->delete();
         return to_route('admin.plates.index')->with('message', "Piatto eliminato con successo!");
     }
