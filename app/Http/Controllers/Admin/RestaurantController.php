@@ -20,10 +20,10 @@ class RestaurantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { {
-            $restaurants = Restaurant::orderByDesc('id')->get();
-            return view('admin.restaurants.index', compact('restaurants'));
-        }
+    {
+        $restaurants = Restaurant::orderByDesc('id')->get();
+
+        return view('admin.restaurants.index', compact('restaurants'));
     }
 
     /**
@@ -48,17 +48,15 @@ class RestaurantController extends Controller
         $user_restaurant = Restaurant::where('user_id', Auth::user()->id)->exists();
         if ($user_restaurant) {
             return to_route('admin.dashboard')->with('message', "Non puoi aggiungere un altro ristorante!");
-        } else { 
-        $val_data = $request->validated();
-         if ($request->hasFile('restaurant_image')) {
-            $restaurant_image = Storage::disk('public')->put('uploads', $val_data['restaurant_image']);
-            $val_data['restaurant_image'] = $restaurant_image;
-            $val_data['user_id'] = Auth::user()->id;
-            $restaurant = Restaurant::create($val_data);
-            $restaurant->types()->attach($request['type_id']);
-         }  
-           
-            
+        } else {
+            $val_data = $request->validated();
+            if ($request->hasFile('restaurant_image')) {
+                $restaurant_image = Storage::disk('public')->put('uploads', $val_data['restaurant_image']);
+                $val_data['restaurant_image'] = $restaurant_image;
+                $val_data['user_id'] = Auth::user()->id;
+                $restaurant = Restaurant::create($val_data);
+                $restaurant->types()->attach($request['type_id']);
+            }
         }
         return to_route('admin.dashboard');
     }
