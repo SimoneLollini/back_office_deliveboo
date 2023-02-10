@@ -25,7 +25,7 @@ class StoreRestaurantRequest extends FormRequest
     {
         return [
             'name' => 'required|max:100',
-            'type_id' => 'required',
+            'types' => 'required|exists:types,id',
             'phone' => 'required|min:10|max:12',
             'piva' => 'required|unique:restaurants,piva|digits:11',
             'address' => 'required',

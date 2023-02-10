@@ -26,12 +26,12 @@ class UpdateRestaurantRequest extends FormRequest
     {
         return [
             'name' => 'required|max:100',
-            'type_id' => 'required',
+            'types' => 'required|exists:types,id',
             'phone' => 'required|min:10|max:12',
             'piva' => ['required', Rule::unique('restaurants')->ignore($this->restaurant->id), 'digits:11'],
             'address' => 'required',
             'user_id' => 'unique:restaurant',
-            'restaurant_image' => 'required|image|max:512'
+            'restaurant_image' => 'image|max:512'
         ];
     }
 }
