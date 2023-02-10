@@ -24,58 +24,67 @@
 
         @include ('partials.message')
 
-
-        @foreach ($plates as $plate)
-            <div class="row align-items-center ms_row">
-                <div class="col-2">
-                    @if ($plate->plate_image)
-                        <img style='width:140px' class='img-fluid' src="{{ asset('storage/' . $plate->plate_image) }}"
-                            alt="$plate->title">
-                    @else
-                        <div class='placeholder p-5 bg-secondary d-flex align-items-center justify-content-center'
-                            style='width:140px'>Placeholder</div>
-                    @endif
-                </div>
-                <div class="col-8">
-                    <p class="text-dark-red"><strong>Nome del piatto: </strong> {{ $plate->name }}</p>
-
-                    <p class="text-dark-red"><strong>Portata: </strong> {{ $plate->type }} </p>
-
-                    <p class="text-dark-red"><strong>Prezzo: </strong> {{ $plate->price }}</p>
-
-                    <p class="text-dark-red"><strong>Visibilità per il cliente: </strong>
-                        @if ($plate->visibility == 1)
-                            Visibile<span class="circle green ms-3">⬤</span>
+        @if (!$plates->isEmpty())
+            @foreach ($plates as $plate)
+                <div class="row align-items-center ms_row">
+                    <div class="col-2">
+                        @if ($plate->plate_image)
+                            <img style='width:140px' class='img-fluid' src="{{ asset('storage/' . $plate->plate_image) }}"
+                                alt="$plate->title">
+                        @else
+                            <div class='placeholder p-5 bg-secondary d-flex align-items-center justify-content-center'
+                                style='width:140px'>Placeholder</div>
                         @endif
-                        @if ($plate->visibility == 0)
-                            <strong>NON </strong>visibile<span class="circle red ms-3">⬤</span>
-                        @endif
-                    </p>
-                </div>
-                <div class="col-2">
-                    <h4 class="text-center text-dark-red">Azioni</h4>
-                    <div class='d-flex flex-column'>
-                        <div>
-                            <a href="{{ route('admin.plates.show', $plate->id) }}" type="button"
-                                class='btn btn_secondary col-12 mb-3'>Dettagli</a>
-                        </div>
-                        <div>
-                            <a href="{{ route('admin.plates.edit', $plate->id) }}" type="button"
-                                class='btn btn_edit col-12 mb-3'>Aggiorna</a>
-                        </div>
-                        <div>
+                    </div>
+                    <div class="col-8">
+                        <p class="text-dark-red"><strong>Nome del piatto: </strong> {{ $plate->name }}</p>
 
-                            <button data-bs-toggle='modal' data-bs-target='#delete-{{ $plate->id }}'
-                                class='btn btn_delete col-12 mb-3'>Elimina</button>
+                        <p class="text-dark-red"><strong>Portata: </strong> {{ $plate->type }} </p>
 
-                            @include('partials.plate-modal')
+                        <p class="text-dark-red"><strong>Prezzo: </strong> {{ $plate->price }}</p>
+
+                        <p class="text-dark-red"><strong>Visibilità per il cliente: </strong>
+                            @if ($plate->visibility == 1)
+                                Visibile<span class="circle green ms-3">⬤</span>
+                            @endif
+                            @if ($plate->visibility == 0)
+                                <strong>NON </strong>visibile<span class="circle red ms-3">⬤</span>
+                            @endif
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <h4 class="text-center text-dark-red">Azioni</h4>
+                        <div class='d-flex flex-column'>
+                            <div>
+                                <a href="{{ route('admin.plates.show', $plate->id) }}" type="button"
+                                    class='btn btn_secondary col-12 mb-3'>Dettagli</a>
+                            </div>
+                            <div>
+                                <a href="{{ route('admin.plates.edit', $plate->id) }}" type="button"
+                                    class='btn btn_edit col-12 mb-3'>Aggiorna</a>
+                            </div>
+                            <div>
+
+                                <button data-bs-toggle='modal' data-bs-target='#delete-{{ $plate->id }}'
+                                    class='btn btn_delete col-12 mb-3'>Elimina</button>
+
+                                @include('partials.plate-modal')
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
 
-        <div class="row">{{ $plates->links() }}</div>
+            <div class="row">{{ $plates->links() }}</div>
+        @else
+            <div class="row align-items-center justify-content-center p-5 ms_order">
+
+                <h3 id="ms_title" class="text-dark-red col-6">Non ci sono ancora piatti nel tuo ristorante</h3>
+
+                <img src="{{ asset('/img/deliveboo-logo.png') }}" alt="" class="img-fluid col-4">
+
+            </div>
+        @endif
     </div>
 @endsection
 
@@ -118,5 +127,10 @@
     .ms_caption {
         font-style: italic;
         font-size: 18px
+    }
+
+    .ms_order {
+        background-color: #f6edda;
+        border-radius: 5px;
     }
 </style>

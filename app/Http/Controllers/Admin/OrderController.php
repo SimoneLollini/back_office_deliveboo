@@ -28,7 +28,7 @@ class OrderController extends Controller
 
         // $plates = Plate::find($user_id);
 
-        $plates = Restaurant::find(19)->plates()->get();
+        $plates = Restaurant::find($user_id)->plates()->get();
 
         // dd($plates);
 
