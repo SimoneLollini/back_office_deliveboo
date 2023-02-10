@@ -55,23 +55,17 @@ class PlateController extends Controller
         if ($request->hasFile('plate_image')) {
             $plate_image = Storage::disk('public')->put('uploads', $val_data['plate_image']);
             $val_data['plate_image'] = $plate_image;
-        }     
-        
+        }
+
         if (array_key_exists("visibility", $val_data) and $val_data['visibility'] = 1) {
             $val_data['visibility'] = true;
         } else {
             $val_data['visibility'] = false;
         }
-        
+        $val_data['restaurant_id'] = Auth::user()->id;
 
         $plate = Plate::create($val_data);
-        //Many to many relationship
-        // if ($request->has('technologies')) {
-        //     $plate->technologies()->attach($val_data['technologies']);
-        // }
-  
         return to_route('admin.plates.index')->with('message', "Piatto aggiunto correttamente");
-
     }
 
     /**
