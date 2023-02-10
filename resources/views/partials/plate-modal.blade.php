@@ -13,13 +13,13 @@
                 possibile recuperare i dati.
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
                 <form action="{{ route('admin.plates.destroy', $plate->id) }}" method="post">
                     @csrf
 
                     @method ('delete')
 
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger">Elimina</button>
                 </form>
             </div>
         </div>

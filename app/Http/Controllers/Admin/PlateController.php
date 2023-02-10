@@ -25,7 +25,7 @@ class PlateController extends Controller
         $auth_user = Auth::user()->id;
         $user_restaurant = Restaurant::find(Auth::id());
         $user_id = Restaurant::find($auth_user)->user_id;
-        $plates = DB::table('plates')->where('restaurant_id', '=', $user_id)->paginate(6);
+        $plates = DB::table('plates')->where('restaurant_id', '=', $user_id)->orderByDesc('id')->paginate(4);
         return view('Admin.Plates.index', compact('plates', 'user_restaurant'));
     }
 
@@ -119,9 +119,15 @@ class PlateController extends Controller
             $val_data['plate_image'] = $plate_image;
         }
 
+        if (array_key_exists("visibility", $val_data) and $val_data['visibility'] = 1) {
+            $val_data['visibility'] = true;
+        } else {
+            $val_data['visibility'] = false;
+        }
+
 
         $plate->update($val_data);
-        return to_route('admin.plates.index')->with('message', "Piatto aggiornato con successo!");
+        return to_route('admin.plates.index')->with('message', "Piatto aggiornato correttamente");
     }
 
     /**
@@ -136,6 +142,6 @@ class PlateController extends Controller
             Storage::delete($plate->cover_image);
         }
         $plate->delete();
-        return to_route('admin.plates.index')->with('message', "Piatto eliminato con successo!");
+        return to_route('admin.plates.index')->with('message', "Piatto cancellato correttamente");
     }
 }

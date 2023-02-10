@@ -40,19 +40,22 @@ header,
     background-color: $primary;
     padding-top: 0.5rem;
 }
+
 .sidebar-sticky .nav-link:hover {
     padding-left: 50px;
     transition: 0.5s;
 }
+
 .sidebar-sticky .nav-link:hover .fa-solid {
     color: $green;
     transition: 0.5s;
 }
 
- .nav-link:hover{
+.nav-link:hover {
     color: $green;
 
 }
+
 //end_header_nav//---------
 
 //buttons//---------
@@ -61,49 +64,60 @@ header,
     color: $light_grey;
     border: 1px solid $darker_primary;
     box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%);
+
     &:hover {
-    background-color: $primary;
-    border: 1px solid $primary;
-    color: $light_grey;
-}
+        background-color: $primary;
+        border: 1px solid $primary;
+        color: $light_grey;
+    }
 }
 
 .btn_edit {
     background-color: $green;
     color: $light_grey;
     box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%);
+
     &:hover {
-    background-color: $light_green;
-    color: $light_grey;
-}
+        background-color: $light_green;
+        color: $light_grey;
+    }
 }
 
 .btn_delete {
     background-color: $dark_red;
     color: $light_grey;
     box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%);
+
     &:hover {
-    background-color: $light_red;
-    color: $light_grey;
-}
+        background-color: $light_red;
+        color: $light_grey;
+    }
 }
 
-.btn-secondary:hover {
-    background-color: $grey;
-    border: 1px solid $grey;
-    color: $light_grey;
+.btn_secondary {
+    background-color: $darker_primary;
+    color: $white;
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 18%);
+
+    &:hover {
+        background-color: $primary;
+        border: 1px solid $primary;
+        color: $white;
+    }
 }
 
 .reg {
     width: fit-content;
 
-&:hover {
-    text-decoration: underline;
+    &:hover {
+        text-decoration: underline;
+    }
 }
-}
-.btn_fit{
+
+.btn_fit {
     width: fit-content;
 }
+
 //end_buttons//---------
 
 .text_green {
@@ -150,9 +164,10 @@ header,
     }
 }
 
-.required_field{
+.required_field {
     width: fit-content;
 }
+
 //end_form//---------
 
 .ms_row {
