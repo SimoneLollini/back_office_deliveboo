@@ -21,9 +21,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::orderByDesc('id')->get();
-
-        return view('admin.restaurants.index', compact('restaurants'));
+        //
     }
 
     /**
@@ -69,7 +67,11 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        return view('admin.restaurants.show', compact('restaurant'));
+        if (Auth::id() === $restaurant->id) {
+            return view('admin.restaurants.show', compact('restaurant'));
+        } else {
+            return to_route('admin.dashboard')->withErrors(['Operazione non autorizzata!']);
+        }
     }
 
     /**
@@ -82,7 +84,11 @@ class RestaurantController extends Controller
     {
         $user_restaurant = Restaurant::find(Auth::id());
         $types = Type::all();
-        return view('admin.restaurants.edit', compact('restaurant', 'types', 'user_restaurant'));
+        if (Auth::id() === $restaurant->id) {
+            return view('admin.restaurants.edit', compact('restaurant', 'types', 'user_restaurant'));
+        } else {
+            return to_route('admin.dashboard')->withErrors(['Operazione non autorizzata!']);
+        }
     }
 
     /**
@@ -97,15 +103,15 @@ class RestaurantController extends Controller
         $user_restaurant = Restaurant::find(Auth::id());
         $val_data = $request->validated();
         if ($request->hasFile('restaurant_image')) {
-            if($restaurant->restaurant_image){
+            if ($restaurant->restaurant_image) {
                 Storage::delete($restaurant->restaurant_image);
             }
             $restaurant_image = Storage::disk('public')->put('uploads', $val_data['restaurant_image']);
-           $val_data['restaurant_image'] = $restaurant_image;
-           $val_data['user_id'] = Auth::user()->id;
-           $restaurant->update($val_data);
-           $restaurant->types()->sync($val_data['type_id']);
-        }  
+            $val_data['restaurant_image'] = $restaurant_image;
+            $val_data['user_id'] = Auth::user()->id;
+            $restaurant->update($val_data);
+            $restaurant->types()->sync($val_data['type_id']);
+        }
         return to_route('admin.dashboard')->with('message', "$restaurant->title modficato con successo");
     }
 
@@ -119,7 +125,7 @@ class RestaurantController extends Controller
     {
         if ($restaurant->id) {
             Storage::delete($restaurant->id);
-            if($restaurant->restaurant_image){
+            if ($restaurant->restaurant_image) {
                 Storage::delete($restaurant->restaurant_image);
             }
         }

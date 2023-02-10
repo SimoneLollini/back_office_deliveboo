@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UpdatePlateRequest extends FormRequest
 {
@@ -34,7 +35,6 @@ class UpdatePlateRequest extends FormRequest
             'type' => 'required'
         ];
     }
-
     /**
      * Get the error messages for the defined validation rules.
      *
