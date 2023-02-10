@@ -31,9 +31,10 @@ class UpdateRestaurantRequest extends FormRequest
             'piva' => ['required', Rule::unique('restaurants')->ignore($this->restaurant->id), 'digits:11'],
             'address' => 'required',
             'user_id' => 'unique:restaurant',
-            'restaurant_image' => 'required|image|max:512'
+            'restaurant_image' => 'image|max:512'
         ];
     }
+
 
     /**
      * Get the error messages for the defined validation rules.
@@ -57,4 +58,5 @@ class UpdateRestaurantRequest extends FormRequest
             'restaurant_image.required' => 'Attenzione! Inserisci un\'immagine.'
         ];
     }
+
 }

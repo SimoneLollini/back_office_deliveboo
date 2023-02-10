@@ -2,12 +2,6 @@
 
 @section('content')
     @if ($user_restaurant)
-        @if (session('message'))
-            <div class="alert alert-success position-absolute w-75"> {{ session('message') }} </div>
-        @endif
-        @if ($errors->any())
-            <div class="alert alert-danger position-absolute w-75"> {{ $errors->first() }} </div>
-        @endif
         <div class="container p-3">
             <div class="p-5">
                 <div class="text-center d-flex align-items-center">
@@ -29,7 +23,10 @@
                     <h2 class="my-3"> Nome Ristorante: {{ $user_restaurant->name }} </h2>
 
                     <p> <strong>Tipologia cucina:</strong>
-                        {{ $user_restaurant->types[0]->name }}</p>
+                        @foreach ($user_restaurant->types as $index => $type)
+                            {{ $type->name }} |
+                        @endforeach
+
 
                     <p> <strong>Numero di telefono:</strong> {{ $user_restaurant->phone }} </p>
 
@@ -75,19 +72,18 @@
                     <div class="mb-3">
                         <label for="type_id" class="form-label">Tipologia cucina <strong
                                 class="text-danger">*</strong></label>
-                        <select class="form-select form-select-lg @error('type_id') is-invalid @enderror" name="type_id"
-                            id="type_id" required>
-
-                            <option value="" selected disabled>Seleziona tipologia cucina </option>
+                        <div class="solid-wrapper">
                             @foreach ($types as $type)
-                                <option value="{{ $type->id }}" {{ old('type_id') == $type->id ? 'selected' : '' }}>
-                                    {{ $type->name }}
-                                </option>
+                                <div class="mb-1">
+                                    <input type="checkbox" name="types[]" value="{{ $type->id }}"
+                                        id="{{ $type->id }}">
+                                    <label for="types">{{ $type->name }}</label>
+                                </div>
                             @endforeach
-                        </select>
+                        </div>
                     </div>
-                    @error('type_id')
-                        <small id="type_idHlper" class="text-danger">{{ $message }} </small>
+                    @error('types')
+                        <small id="typesHlper" class="text-danger">{{ $message }} </small>
                     @enderror
 
                     {{-- SEPARATORE --}}
