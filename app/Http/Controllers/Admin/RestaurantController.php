@@ -102,18 +102,27 @@ class RestaurantController extends Controller
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
         $user_restaurant = Restaurant::find(Auth::id());
+
         $val_data = $request->validated();
+
         if ($request->hasFile('restaurant_image')) {
             if ($restaurant->restaurant_image) {
                 Storage::delete($restaurant->restaurant_image);
             }
             $restaurant_image = Storage::disk('public')->put('uploads', $val_data['restaurant_image']);
             $val_data['restaurant_image'] = $restaurant_image;
-            $val_data['user_id'] = Auth::user()->id;
-            $restaurant->update($val_data);
-            $restaurant->types()->sync($request->types);
         }
-        return to_route('admin.dashboard')->with('message', "$restaurant->title modficato con successo");
+
+        $val_data['user_id'] = Auth::user()->id;
+
+        $restaurant->update($val_data);
+
+        if ($request->has('types')) {
+            $restaurant->types()->sync($val_data['types']);
+        } else {
+            $restaurant->types()->sync([]);
+        }
+        return to_route('admin.dashboard')->with('message', $restaurant->name . ' modificato con successo');
     }
 
     /**
