@@ -76,9 +76,12 @@ class PlateController extends Controller
      */
     public function show(Plate $plate)
     {
-
         $user_restaurant = Restaurant::find(Auth::id());
-        return view('admin.plates.show', compact('plate', 'user_restaurant'));
+        if (Auth::id() === $plate->restaurant_id) {
+            return view('admin.plates.show', compact('plate', 'user_restaurant'));
+        } else {
+            return to_route('admin.dashboard')->withErrors(['Operazione non autorizzata!']);
+        }
     }
 
     /**
@@ -114,7 +117,7 @@ class PlateController extends Controller
 
 
         $plate->update($val_data);
-        return to_route('admin.plates.index')->with('message', "Project updated successfully");
+        return to_route('admin.plates.index')->with('message', "Piatto aggiornato con successo!");
     }
 
     /**
@@ -131,6 +134,6 @@ class PlateController extends Controller
 
 
         $plate->delete();
-        return to_route('admin.plates.index')->with('message', "Data deleted successfully");
+        return to_route('admin.plates.index')->with('message', "Piatto eliminato con successo!");
     }
 }
