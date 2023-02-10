@@ -76,7 +76,9 @@ class PlateController extends Controller
      */
     public function show(Plate $plate)
     {
-        return view('admin.plates.show', compact('plate'));
+
+        $user_restaurant = Restaurant::find(Auth::id());
+        return view('admin.plates.show', compact('plate', 'user_restaurant'));
     }
 
     /**
