@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\PlateController;
 use App\Http\Controllers\Admin\OrderController;
 
 use App\Http\Controllers\Admin\DashboardController;
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
