@@ -37,6 +37,7 @@ class PlateController extends Controller
     public function create()
     {
         $user_restaurant = Restaurant::find(Auth::id());
+
         return view('Admin.Plates.create', compact('user_restaurant'));
     }
 
