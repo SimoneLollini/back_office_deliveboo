@@ -29,9 +29,26 @@ class UpdatePlateRequest extends FormRequest
             'restaurant_id' => 'nullable',
             'description' => 'nullable',
             'ingredients' => 'nullable',
-            'price' => 'nullable',
+            'price' => 'nullable|numeric|min:0|not_in:0',
             'visibility' => 'nullable',
-            'type' => 'nullable'
+            'type' => 'required'
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'Attenzione! Inserisci un nome per il tuo piatto.',
+            'name.min' => 'Il nome deve essere lungo almeno 5 caratteri',
+            'name.max' => 'Hai superato il numero massimo di caratteri (150)',
+            'price.min' => 'Inserisci un numero maggiore di 0 $',
+            'plate_image.max' => 'L\'immagine è troppo pesante, utilizzane una al di sotto dei 300KB',
+            'type.required' => 'Inserisci una portata dall\' elenco'
         ];
     }
 }
