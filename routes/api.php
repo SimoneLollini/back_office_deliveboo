@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\RestaurantController;
 use App\Http\Controllers\API\TypeController;
+use App\Http\Controllers\API\PlateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,5 @@ Route::get('/restaurants/{restaurant:id}', [RestaurantController::class, 'show']
 Route::get('/restaurants/types/{type:name}', [RestaurantController::class, 'types']);
 
 Route::get('/types', [TypeController::class, 'index']);
+
+Route::get('/plates', [PlateController::class, 'index']);
