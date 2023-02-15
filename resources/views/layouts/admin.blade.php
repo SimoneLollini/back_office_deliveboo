@@ -33,7 +33,7 @@
     <div id="app">
 
         <header class="d-flex align-items-center text-dark-red fw-bold sticky-top flex-md-nowrap py-4 shadow-sm">
-            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="{{ url('/') }}"><img class="img-fluid"
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="{{ url('/') }}"><img class="w-75 w-sm-50"
                     src="{{ asset('/img/deliveboo-logo.png') }}" alt="deliveboo-logo"></a>
             <ul class="navbar-nav ml-auto pe-4 ms-auto">
                 <li class="nav-item dropdown">
