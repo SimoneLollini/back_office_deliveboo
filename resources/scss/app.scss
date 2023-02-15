@@ -7,6 +7,11 @@ body {
 }
 
 //header_nav//---------
+header{
+    img{
+        width: 80px;
+    }
+}
 header,
 #sidebarMenu {
     background-color: $white;
