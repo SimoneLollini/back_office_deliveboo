@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\RestaurantController;
 use App\Http\Controllers\API\TypeController;
 use App\Http\Controllers\API\PlateController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,3 +33,6 @@ Route::get('/restaurants/types/{type:name}', [RestaurantController::class, 'type
 Route::get('/types', [TypeController::class, 'index']);
 
 Route::get('/plates', [PlateController::class, 'index']);
+
+Route::get('orders/generate', [OrderController::class, 'generate']);
+Route::post('orders/make/payment', [OrderController::class, 'makePayment']);
