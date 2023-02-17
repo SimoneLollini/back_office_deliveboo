@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->float('price', 5, 2)->required();
             $table->string('phone', 12)->required();
+            $table->string('email')->required();
             $table->string('full_name')->required();
             $table->text('description')->nullable();
             $table->string('address')->required();
