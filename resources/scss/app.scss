@@ -7,6 +7,11 @@ body {
 }
 
 //header_nav//---------
+header{
+    img{
+        width: 80px;
+    }
+}
 header,
 #sidebarMenu {
     background-color: $white;
@@ -139,7 +144,36 @@ header,
     background-repeat: no-repeat;
     background-size: cover;
     height: calc(100vh - 80px);
+    .card{
+        height: 80%;
+    }
+
+    .card-body{
+overflow-y: auto;
+overflow-x: hidden;
+    }
 }
+
+.card-body::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  .card-body::-webkit-scrollbar-track {
+    border: 1px solid rgb(182, 182, 182);
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  .card-body::-webkit-scrollbar-thumb {
+    background: #ffbd59;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  .card-body::-webkit-scrollbar-thumb:hover {
+    background: grey;
+  }
 
 //form//---------
 .form-check-input:checked {
@@ -152,7 +186,6 @@ header,
     border-radius: 30px;
     border: none;
     font-size: 20px;
-    padding: 0.8rem 1.4rem;
 }
 
 .background_form {
@@ -162,6 +195,7 @@ header,
     select {
         border: 1px solid $dark_red;
     }
+
 }
 
 .required_field {

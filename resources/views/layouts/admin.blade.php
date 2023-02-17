@@ -33,60 +33,57 @@
     <div id="app">
 
         <header class="d-flex align-items-center text-dark-red fw-bold sticky-top flex-md-nowrap py-4 shadow-sm">
-            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="{{ url('/') }}"><img class="img-fluid"
-                    src="{{ asset('/img/deliveboo-logo.png') }}" alt="deliveboo-logo"></a>
-            <ul class="navbar-nav ml-auto pe-4 ms-auto">
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a>
+            <a class="navbar-brand d-flex align-items-center col-md-3 col-lg-2 me-0 px-3 fs-6"
+                href="{{ url('/') }}"><img class="img-fluid" src="{{ asset('/img/deliveboo-logo.png') }}"
+                    alt="deliveboo-logo"><span class="d-none d-sm-inline fw-bold fs-4 text_green">DeliveBoo</span></a>
+            <nav class="navbar navbar-expand-md ms-auto">
+                <div class="container">
+                    <ul class="navbar-nav ml-auto pe-4 ms-auto">
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
 
-                    <ul class=" dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ url('admin') }}">{{ __('Dashboard') }}</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <ul class=" dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ url('admin') }}">{{ __('Dashboard') }}</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
+                                    {{ __('Esci') }}
+                                </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            </ul>
         </header>
         <!-- header -->
 
         <div class="container-fluid">
             <div class="row">
                 @if ($user_restaurant)
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block px-0 sidebar collapse">
-                    <div class="pt-3 sidebar-sticky">
+                <nav id="sidebarMenu" class="col-3 col-lg-2 d-block px-0 sidebar collapse">
+                    <div class="pt-3 mt-5 sidebar-sticky">
                         <ul class="nav flex-column text-uppercase">
+
                             <li class="nav-item pt-3">
-                                <a class=" nav-link" aria-current="page" href="">
-                                    <span data-feather="home" class="align-text-bottom"></span>
-                                    <i class="fa-solid fa-utensils pe-2"></i>
-                                    Statistiche
-                                </a>
-                            </li>
-                            <li class="nav-item pt-1">
-                                <a class="nav-link" href="{{ route('admin.plates.index') }}">
+                                <a class="nav-link px-1 px-md-2" href="{{ route('admin.plates.index') }}">
                                     <span data-feather="file" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-utensils pe-2"></i>
                                     Menu
                                 </a>
                             </li>
                             <li class="nav-item pt-1">
-                                <a class="nav-link" href="{{route('admin.plates.create')}}">
+                                <a class="nav-link  px-1 px-md-2" href="{{route('admin.plates.create')}}">
                                     <span data-feather="file" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-utensils pe-2"></i>
                                     Nuovo piatto
                                 </a>
                             </li>
                             <li class="nav-item pt-1">
-                                <a class="nav-link" href="{{ route('admin.orders.index') }}">
+                                <a class="nav-link px-1 px-md-2" href="{{ route('admin.orders.index') }}">
                                     <span data-feather="file" class="align-text-bottom"></span>
                                     <i class="fa-solid fa-utensils pe-2"></i>
                                     Riepilogo ordini
@@ -98,7 +95,7 @@
                 @endif
                 <!-- nav -->
                 @if($user_restaurant)
-                <main class="col-md-9 ms-sm-auto col-lg-10">
+                <main class="col-9 ms-sm-auto col-lg-10">
                     @yield('content')
                 </main>
                 @else
