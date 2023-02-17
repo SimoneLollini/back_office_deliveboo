@@ -7,6 +7,7 @@ use App\Models\Plate;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
+use Illuminate\Support\Str;
 
 class OrderSeeder extends Seeder
 {
@@ -21,6 +22,7 @@ class OrderSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $newOrder = new Order();
             $newOrder->price = $faker->randomFloat(2, 5, 60);
+            $newOrder->email = Str::random(10) . '@gmail.com';
             $newOrder->phone = $faker->e164PhoneNumber();
             $newOrder->description = $lorem;
             $newOrder->full_name = $faker->name();
