@@ -18,13 +18,12 @@ class RestaurantController extends Controller
 
     public function show($id)
     {
-
         $restaurant = Restaurant::with('types', 'plates')->where('id', $id)->first();
-
         if ($restaurant) {
             return response()->json([
                 'success' => true,
-                'results' => $restaurant
+                'results' => $restaurant,
+                'plates' => $restaurant->plates->where('visibility', '=', true)
             ]);
         } else {
             return response()->json([
