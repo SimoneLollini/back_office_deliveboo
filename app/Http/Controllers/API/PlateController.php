@@ -12,7 +12,7 @@ class PlateController extends Controller
     {
         return response()->json([
             'success' => true,
-            'results' => Plate::all()
+            'results' => Plate::all()->where('visibility', '=', true)
         ]);
     }
 }
