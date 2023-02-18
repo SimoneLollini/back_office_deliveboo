@@ -20,18 +20,19 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $allPlates = $request->plates;
+
+        $plateArray = json_decode($request->cart, true);
         $data = $request->all();
 
         /* 
-          $table->float('price', 5, 2)->required();
-            $table->string('phone', 12)->required();
-            $table->string('email')->required();
-            $table->string('full_name')->required();
-            $table->text('description')->nullable();
-            $table->string('address')->required();
-            $table->boolean('status')->nullable();
-             */
+ price
+ phone
+ email
+ full_name
+ description
+ addr   ess
+ status
+        */
         $validator = Validator::make($data, [
             'full_name' => 'required',
             'email' => 'required|email',
@@ -50,10 +51,11 @@ class OrderController extends Controller
         $newOrder = new Order();
         $newOrder->fill($data);
         $newOrder->save();
-        foreach ($allPlates as $plate) {
-            $newOrder->plates()->attach($plate);
+
+        foreach ($plateArray as $plate) {
+            $newOrder->plates()->attach($plate['id'], array('quantity' => $plate['quantity']));
         }
-        //$newOrder->plates()->attach($allPlates);
+
         //Mail::to('info@l=boolpress.com')->send(new NewContact($newOrder));
 
         return response()->json([
