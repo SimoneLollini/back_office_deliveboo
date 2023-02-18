@@ -18,9 +18,17 @@
 
             @foreach ($collection as $order)
                 <div class="order text-center">
-                    <span>ID: {{ $order->first()->id }} </span> <br>
+                    Piatti ordinati: <br>
+                    <ul>
+                        @foreach ($order->first()->plates as $key => $plate)
+                            <li>{{ $plate->name }}</li>
+                        @endforeach
+                    </ul>
+                    {{-- <span>ID: {{ $order->first()->id }} </span> <br> --}}
                     <hr>
                     <span>Nome utente: {{ $order->first()->full_name }} </span> <br>
+
+
                     <hr>
                     <span>Numero di telefono: {{ $order->first()->phone }} </span> <br>
                     <hr>
