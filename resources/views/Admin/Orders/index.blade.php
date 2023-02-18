@@ -21,7 +21,10 @@
                     Piatti ordinati: <br>
                     <ul>
                         @foreach ($order->first()->plates as $key => $plate)
-                            <li>{{ $plate->name }}</li>
+                            <li>
+                                {{ $plate->name }}
+                                {{ $plate->pivot->quantity }}
+                            </li>
                         @endforeach
                     </ul>
                     {{-- <span>ID: {{ $order->first()->id }} </span> <br> --}}
