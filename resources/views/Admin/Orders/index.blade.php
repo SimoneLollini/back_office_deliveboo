@@ -23,6 +23,7 @@
                         @foreach ($order->first()->plates as $key => $plate)
                             <li>
                                 {{ $plate->name }}
+                                | quantità:
                                 {{ $plate->pivot->quantity }}
                             </li>
                         @endforeach
