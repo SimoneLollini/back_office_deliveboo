@@ -37,7 +37,7 @@ class OrderController extends Controller
             'full_name' => 'required',
             'email' => 'required|email',
             'address' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|min:10|max:12',
             'description' => 'nullable'
         ]);
 
