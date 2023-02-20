@@ -121,7 +121,7 @@
                                     class="form-control @error('piva') is-invalid @enderror" placeholder="Aggiungi piva"
                                     value="{{ old('piva') }}" required minlength="11" maxlength="11">
 
-
+                                <small class="text_dark_red text-end">Campo obbligatorio</small>
                                 @error('piva')
                                 <small id="pivaHlper" class="invalid-feedback">{{ $message }} </small>
                                 @enderror
@@ -136,7 +136,7 @@
                                     class="form-control @error('address') is-invalid @enderror"
                                     placeholder="Inserisci indirizzo" value="{{ old('address') }}" required>
 
-
+                                <small class="text_dark_red text-end">Campo obbligatorio</small>
                                 @error('address')
                                 <small id="addressHlper" class="invalid-feedback">{{ $message }} </small>
                                 @enderror
@@ -150,6 +150,8 @@
                                 <input type="file" class="form-control @error('restaurant_image') is-invalid @enderror"
                                     id="restaurant_image" name="restaurant_image" value="{{ old('restaurant_image') }}"
                                     required>
+
+                                <small class="text_dark_red text-end">Campo obbligatorio</small>
                                 @error('restaurant_image')
                                 <small id="restaurant_imageHlper" class="invalid-feedback">{{ $message }} </small>
                                 @enderror
