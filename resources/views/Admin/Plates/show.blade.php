@@ -18,11 +18,11 @@
         @include ('partials.message')
 
 
-        <div class="row align-items-center ms_row">
+        <div class="row align-items-center ms_row hight_row">
 
-            <div class="col-2">
+            <div class="col-4">
                 @if ($plate->plate_image)
-                    <img style='width:140px' class='img-fluid' src="{{ asset('storage/' . $plate->plate_image) }}"
+                    <img style='width:90%' class='img-fluid mt-2' src="{{ asset('storage/' . $plate->plate_image) }}"
                         alt="$plate->title">
                 @else
                     <div class='placeholder p-5 bg-secondary d-flex align-items-center justify-content-center'
@@ -51,26 +51,26 @@
                 </p>
             </div>
 
-            <div class="col-2 align-self-start py-3">
+            <div class="col-4 align-self-start py-3">
 
                 @if ($plate->description)
                     <p class="text-dark-red m-0"><strong>Descrizione: </strong> {{ $plate->description }}</p>
                 @else
                     <p class="text-dark-red m-0"><strong>Descrizione: </strong> Nessuna descrizione disponibile </p>
                 @endif
-            </div>
 
-            <div class="col-2 align-self-start py-3">
+                <br>
 
-                @if ($plate->ingredients)
+                 @if ($plate->ingredients)
                     <p class="text-dark-red m-0"><strong>Ingredienti: </strong> {{ $plate->ingredients }}</p>
                 @else
                     <p class="text-dark-red m-0"><strong>Ingredienti: </strong>Nessun ingrediente inserito </p>
                 @endif
-
             </div>
 
-            <div class="col-2">
+            
+
+            <div class="col-12">
                 <h4 class="text-center text-dark-red">Azioni</h4>
                 <div class="d-flex flex-column">
                     <div>
@@ -115,5 +115,8 @@
     .ms_caption {
         font-style: italic;
         font-size: 18px
+    }
+    .hight_row{
+        height: 55vh;
     }
 </style>
