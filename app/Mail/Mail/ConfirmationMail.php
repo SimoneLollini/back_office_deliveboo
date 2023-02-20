@@ -30,7 +30,7 @@ class ConfirmationMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Confirmation Mail'
+            subject: 'Email di conferma'
         );
     }
 
