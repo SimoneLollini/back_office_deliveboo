@@ -4,7 +4,7 @@
 <div class="background-log-reg 100vh">
     <div class="container px-3 px-sm-5 py-5 h-100">
         <div class="row justify-content-end h-100">
-            <div class="col-md-6 h-100">
+            <div class="col-md-7 col-lg-6 h-100">
                 <div class="card px-5 py-5 rounded-5 border-0 h-100">
                     <div class=" pb-3 fs-2"><span class="text_dark_red fw-bold">Accedi a </span><span
                             class="text_green fw-bold">DeliveBoo</span></div>
@@ -63,7 +63,7 @@
                             </div>
 
                             <div class="row pt-4">
-                                <div class="offset-md-4">
+                                <div class="d-flex justify-content-center">
                                     <div class="form-check">
                                         <input class="form-check-input text_dark_red" type="checkbox" name="remember"
                                             id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -76,7 +76,7 @@
                             </div>
 
                             <div class="row py-3 mb-0">
-                                <div class="offset-md-4">
+                                <div class="d-flex justify-content-center">
                                     <button type="submit" class="btn_add rounded-5 fs-5 fw-bold px-4 py-1">
                                         {{ __('Accedi') }}
                                     </button>
