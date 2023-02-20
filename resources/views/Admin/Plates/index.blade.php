@@ -41,7 +41,7 @@
 
                         <p class="text-dark-red"><strong>Portata: </strong> {{ $plate->type }} </p>
 
-                        <p class="text-dark-red"><strong>Prezzo: </strong> {{ $plate->price }}</p>
+                        <p class="text-dark-red"><strong>Prezzo: </strong> {{ $plate->price }} &euro;</p>
 
                         <p class="text-dark-red"><strong>Visibilità per il cliente: </strong>
                             @if ($plate->visibility == 1)

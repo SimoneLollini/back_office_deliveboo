@@ -36,7 +36,7 @@
                 <p class="text-dark-red"><strong>Portata: </strong> {{ $plate->type }} </p>
 
                 @if ($plate->price)
-                    <p class="text-dark-red"><strong>Prezzo: </strong> {{ $plate->price }}</p>
+                    <p class="text-dark-red"><strong>Prezzo: </strong> {{ $plate->price }} &euro;</p>
                 @else
                     <p class="text-dark-red"><strong>Prezzo: </strong> Nessun prezzo stabilito</p>
                 @endif
