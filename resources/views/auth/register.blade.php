@@ -4,7 +4,7 @@
 <div class="background-log-reg 100vh">
     <div class="container px-3 px-sm-5 py-5 h-100">
         <div class="row justify-content-end h-100">
-            <div class="col-md-6 h-100">
+            <div class="col-md-7 col-lg-6 h-100">
                 <div class="card px-4 py-5 rounded-5 border-0 h-100">
                     <div class=" pb-3 fs-2"><span class="text_dark_red fw-bold">Registrati su </span><span
                             class="text_green fw-bold">DeliveBoo</span></div>
@@ -75,12 +75,20 @@
 
                             </div>
 
-                            <div class="row ">
-                                <div class="offset">
-                                    <button type="submit" class="btn btn_add mt-5">
+                            <div class="row py-3 mb-0">
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn_add rounded-5 fs-5 fw-bold px-4 py-1">
                                         {{ __('Registrati') }}
                                     </button>
+
                                 </div>
+                            </div>
+
+                            <div class="row mb-0 text-center text_dark_red">
+                                <h5 class="mb-0">Hai già un account?</h5>
+                                <a class="btn text_dark_red ps-4 fs-5 reg m-auto" href="{{ route('login') }}">
+                                    {{ __('Accedi qui!') }}
+                                </a>
                             </div>
                         </form>
                     </div>
