@@ -54,7 +54,7 @@
                 <label for="phone" class="form-label">Numero di telefono <strong class="text-danger">*</strong></label>
                 <input type="text" name="phone" id="phone"
                     class="form-control @error('phone') is-invalid @enderror" placeholder="add phone"
-                    value="{{ old('phone', $restaurant->phone) }}">
+                    value="{{ old('phone', $restaurant->phone) }}" minlength="9" maxlength="12">
             </div>
             @error('phone')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -65,7 +65,7 @@
             <div class="mb-3">
                 <label for="piva" class="form-label">P.IVA <strong class="text-danger">*</strong></label>
                 <input type="text" name="piva" id="piva" class="form-control @error('piva') is-invalid @enderror"
-                    placeholder="add piva" value="{{ old('piva', $restaurant->piva) }}">
+                    placeholder="add piva" value="{{ old('piva', $restaurant->piva) }}" required disabled>
             </div>
             @error('piva')
                 <div class="alert alert-danger">{{ $message }}</div>

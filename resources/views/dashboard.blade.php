@@ -96,7 +96,8 @@
                                 class="text-danger">*</strong></label>
                         <input type="text" name="phone" id="phone"
                             class="form-control @error('phone') is-invalid @enderror"
-                            placeholder="Aggiungi numero di telefono" value="{{ old('phone') }}" required>
+                            placeholder="Aggiungi numero di telefono" value="{{ old('phone') }}" required minlength="9"
+                            maxlength="12">
                     </div>
 
                     @error('phone')
@@ -109,7 +110,7 @@
                         <label for="piva" class="form-label">P.IVA <strong class="text-danger">*</strong></label>
                         <input type="text" name="piva" id="piva"
                             class="form-control @error('piva') is-invalid @enderror" placeholder="Aggiungi piva"
-                            value="{{ old('piva') }}" required>
+                            value="{{ old('piva') }}" required minlength="11" maxlength="11">
                     </div>
 
                     @error('piva')
