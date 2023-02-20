@@ -53,22 +53,22 @@
 
             <div class="col-4 align-self-start py-3">
 
+
+
+                @if ($plate->ingredients)
+                    <p class="text-dark-red m-0"><strong>Ingredienti: </strong> {{ $plate->ingredients }}</p>
+                @else
+                    <p class="text-dark-red m-0"><strong>Ingredienti: </strong>Nessun ingrediente inserito </p>
+                @endif
+                <br>
                 @if ($plate->description)
                     <p class="text-dark-red m-0"><strong>Descrizione: </strong> {{ $plate->description }}</p>
                 @else
                     <p class="text-dark-red m-0"><strong>Descrizione: </strong> Nessuna descrizione disponibile </p>
                 @endif
-
-                <br>
-
-                 @if ($plate->ingredients)
-                    <p class="text-dark-red m-0"><strong>Ingredienti: </strong> {{ $plate->ingredients }}</p>
-                @else
-                    <p class="text-dark-red m-0"><strong>Ingredienti: </strong>Nessun ingrediente inserito </p>
-                @endif
             </div>
 
-            
+
 
             <div class="col-12">
                 <h4 class="text-center text-dark-red">Azioni</h4>
@@ -116,7 +116,8 @@
         font-style: italic;
         font-size: 18px
     }
-    .hight_row{
+
+    .hight_row {
         height: 55vh;
     }
 </style>
