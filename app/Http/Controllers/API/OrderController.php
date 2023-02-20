@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Mail\ConfirmationMail;
+use App\Mail\Mail\NewContact as MailNewContact;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -24,15 +26,6 @@ class OrderController extends Controller
         $plateArray = json_decode($request->cart, true);
         $data = $request->all();
 
-        /* 
- price
- phone
- email
- full_name
- description
- addr   ess
- status
-        */
         $validator = Validator::make($data, [
             'full_name' => 'required',
             'email' => 'required|email',
@@ -56,7 +49,9 @@ class OrderController extends Controller
             $newOrder->plates()->attach($plate['id'], array('quantity' => $plate['quantity']));
         }
 
-        //Mail::to('info@l=boolpress.com')->send(new NewContact($newOrder));
+        Mail::to('admin@laravel.it')->send(new MailNewContact($newOrder));
+
+        Mail::to('user@mail.com')->send(new ConfirmationMail());
 
         return response()->json([
             'success' => true
