@@ -55,18 +55,18 @@
         <div class="col-4">
 
             @if ($plate->ingredients)
-            <h4 class="text-dark-red m-0 fw-bold"><strong>Ingredienti: </strong> <span
+            <h4 class="text-dark-red m-0"><strong>Ingredienti: </strong> <span
                     class="fw-normal">{{ $plate->ingredients }}</span></h4>
             @else
-            <h4 class="text-dark-red m-0 fw-bold"><strong>Ingredienti: </strong> <span class="fw-normal">Nessun
+            <h4 class="text-dark-red m-0"><strong>Ingredienti: </strong> <span class="fw-normal">Nessun
                     ingrediente inserito </span></h4>
             @endif
             <br>
             @if ($plate->description)
-            <h4 class="text-dark-red m-0 fw-bold"><strong>Descrizione: </strong> <span
+            <h4 class="text-dark-red m-0"><strong>Descrizione: </strong> <span
                     class="fw-normal">{{ $plate->description }}</span></h4>
             @else
-            <h4 class="text-dark-red m-0 fw-bold"><strong>Descrizione: </strong> <span class="fw-normal">Nessuna
+            <h4 class="text-dark-red m-0"><strong>Descrizione: </strong> <span class="fw-normal">Nessuna
                     descrizione disponibile </span></h4>
             @endif
 
