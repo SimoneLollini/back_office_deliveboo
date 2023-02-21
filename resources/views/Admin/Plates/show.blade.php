@@ -73,10 +73,10 @@
             <div class="ms-auto mt-5 ">
 
                 <a href="{{ route('admin.plates.edit', $plate->id) }}" type="button"
-                    class="btn btn_edit me-2">Aggiorna</a>
+                    class="btn btn_edit me-2 fw-bold">Aggiorna</a>
 
                 <button data-bs-toggle="modal" data-bs-target="#delete-{{ $plate->id }}"
-                    class="btn btn_delete">Elimina</button>
+                    class="btn btn_delete fw-bold">Elimina</button>
 
                 @include('partials.plate-modal')
 
