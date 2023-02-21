@@ -7,7 +7,7 @@
 
 </div>
 @include('partials.error')
-<div class="container px-5">
+<div class="container px-5 pb-5">
 
     <form class="mt-5 shadow w-75 m-auto rounded-4" action="{{ route('admin.plates.update', $plate->id) }}"
         method="post" enctype="multipart/form-data" id="edit_form" class="text-dark-red">
