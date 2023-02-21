@@ -69,8 +69,14 @@
                     <nav id="sidebarMenu" class="col-3 col-lg-2 d-block px-0 sidebar collapse">
                         <div class="pt-3 mt-5 sidebar-sticky">
                             <ul class="nav flex-column text-uppercase">
-
                                 <li class="nav-item pt-3">
+                                    <a class="nav-link px-1 px-md-2" href="{{ route('admin.dashboard') }}">
+                                        <span data-feather="file" class="align-text-bottom"></span>
+                                        <i class="fa-solid fa-utensils pe-2"></i>
+                                        Pannello ristorante
+                                    </a>
+                                </li>
+                                <li class="nav-item pt-1">
                                     <a class="nav-link px-1 px-md-2" href="{{ route('admin.plates.index') }}">
                                         <span data-feather="file" class="align-text-bottom"></span>
                                         <i class="fa-solid fa-utensils pe-2"></i>

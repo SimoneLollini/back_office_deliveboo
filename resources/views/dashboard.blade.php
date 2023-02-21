@@ -2,15 +2,14 @@
 
 @section('content')
     @if ($user_restaurant)
-        <div class="container p-3">
-            <div class="p-5">
-
-                <div class="text-center d-flex align-items-center">
-                    <h3 class="text-dark-red text-center"><strong>Benvenuto nel pannello di amministrazione</strong></h2>
-                        <img class="ms-auto" src="{{ asset('img/deliveboo-logo.png') }}" alt="">
+        <div class="container px-3 py-2">
+            <div class="">
+                <div class="d-flex align-items-center justify-content-start">
+                    <img class="px-2 logo_dash" src="{{ asset('img/deliveboo-logo.png') }}" alt="">
+                    <h3 class="text-dark-red text-center">
+                        <strong>Benvenuto nel pannello di amministrazione</strong>
+                    </h3>
                 </div>
-
-
             </div>
 
             <div class="row align-items-center card p-5 rounded-5 border-0">

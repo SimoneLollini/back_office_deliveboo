@@ -4,6 +4,10 @@
 
 img {
     max-width: 100%;
+
+    &.logo_dash {
+        max-width: 10%;
+    }
 }
 
 body {
@@ -221,4 +225,9 @@ header,
 .solid-wrapper {
     height: 7rem;
     overflow-y: auto;
+}
+
+hr.new {
+    border: 2px solid #A43C28;
+    opacity: 1;
 }
