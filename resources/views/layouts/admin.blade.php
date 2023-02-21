@@ -48,8 +48,7 @@
 
                             <ul class=" dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ url('admin') }}">{{ __('Dashboard') }}</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Esci') }}
                                 </a>
@@ -66,44 +65,44 @@
         <div class="container-fluid">
             <div class="row">
                 @if ($user_restaurant)
-                    <nav id="sidebarMenu" class="col-3 col-lg-2 d-block px-0 sidebar collapse">
-                        <div class="pt-3 mt-5 sidebar-sticky">
-                            <ul class="nav flex-column text-uppercase">
+                <nav id="sidebarMenu" class="col-3 col-lg-2 d-block px-0 sidebar collapse">
+                    <div class="pt-3 mt-5 sidebar-sticky">
+                        <ul class="nav flex-column text-uppercase">
 
-                                <li class="nav-item pt-3">
-                                    <a class="nav-link px-1 px-md-2" href="{{ route('admin.plates.index') }}">
-                                        <span data-feather="file" class="align-text-bottom"></span>
-                                        <i class="fa-solid fa-utensils pe-2"></i>
-                                        Menu
-                                    </a>
-                                </li>
-                                <li class="nav-item pt-1">
-                                    <a class="nav-link  px-1 px-md-2" href="{{ route('admin.plates.create') }}">
-                                        <span data-feather="file" class="align-text-bottom"></span>
-                                        <i class="fa-solid fa-utensils pe-2"></i>
-                                        Nuovo piatto
-                                    </a>
-                                </li>
-                                <li class="nav-item pt-1">
-                                    <a class="nav-link px-1 px-md-2" href="{{ route('admin.orders.index') }}">
-                                        <span data-feather="file" class="align-text-bottom"></span>
-                                        <i class="fa-solid fa-utensils pe-2"></i>
-                                        Riepilogo ordini
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
+                            <li class="nav-item pt-3">
+                                <a class="nav-link px-1 px-md-2" href="{{ route('admin.plates.index') }}">
+                                    <span data-feather="file" class="align-text-bottom"></span>
+                                    <i class="fa-solid fa-utensils pe-2"></i>
+                                    Menu
+                                </a>
+                            </li>
+                            <li class="nav-item pt-1">
+                                <a class="nav-link  px-1 px-md-2" href="{{ route('admin.plates.create') }}">
+                                    <span data-feather="file" class="align-text-bottom"></span>
+                                    <i class="fa-solid fa-utensils pe-2"></i>
+                                    Nuovo piatto
+                                </a>
+                            </li>
+                            <li class="nav-item pt-1">
+                                <a class="nav-link px-1 px-md-2" href="{{ route('admin.orders.index') }}">
+                                    <span data-feather="file" class="align-text-bottom"></span>
+                                    <i class="fa-solid fa-utensils pe-2"></i>
+                                    Riepilogo ordini
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
                 @endif
                 <!-- nav -->
                 @if ($user_restaurant)
-                    <main class="col-9 ms-sm-auto col-lg-10">
-                        @yield('content')
-                    </main>
+                <main class="col-9 ms-sm-auto col-lg-10 px-0">
+                    @yield('content')
+                </main>
                 @else
-                    <main class="p-0">
-                        @yield('content')
-                    </main>
+                <main class="p-0">
+                    @yield('content')
+                </main>
                 @endif
             </div>
         </div>

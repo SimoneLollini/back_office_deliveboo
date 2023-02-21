@@ -1,100 +1,93 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container p-3">
+<div class="shadow-sm mx-0 mb-4">
 
-        <div class='row justify-content-between py-3 m-0 align-items-center'>
+    <div class='row justify-content-betweena lign-items-center px-5 m-0'>
 
-            <h1 class="text-dark-red col-8">Ecco qui il tuo piatto: {{ $plate->name }}</h1>
+        <h1 class="text_dark_red fw-bold ps-3 my-0 col-8">{{ $plate->name }}<img class="menu_icon ms-3"
+                src="{{ asset('/img/menu.png') }}" alt=""></h1>
 
-            <p class="text-dark-red col-4"> <span class="ms_caption">Legenda:</span> <span class="circle green ms-3">⬤</span>
-                Visibile <span class="circle red ms-3">⬤</span> Non
-                visibile </p>
-
-        </div>
-
-        <hr class="new">
-
-        @include ('partials.message')
-
-
-        <div class="row align-items-center ms_row hight_row">
-
-            <div class="col-4">
-                @if ($plate->plate_image)
-                    <img style='width:90%' class='img-fluid mt-2' src="{{ asset('storage/' . $plate->plate_image) }}"
-                        alt="$plate->title">
-                @else
-                    <div class='placeholder p-5 bg-secondary d-flex align-items-center justify-content-center'
-                        style='width:140px'>Placeholder</div>
-                @endif
-            </div>
-
-            <div class="col-4">
-                <p class="text-dark-red"><strong>Nome del piatto: </strong> {{ $plate->name }}</p>
-
-                <p class="text-dark-red"><strong>Portata: </strong> {{ $plate->type }} </p>
-
-                @if ($plate->price)
-                    <p class="text-dark-red"><strong>Prezzo: </strong> {{ $plate->price }} &euro;</p>
-                @else
-                    <p class="text-dark-red"><strong>Prezzo: </strong> Nessun prezzo stabilito</p>
-                @endif
-
-                <p class="text-dark-red"><strong>Visibilità per il cliente: </strong>
-                    @if ($plate->visibility == 1)
-                        Visibile<span class="circle green ms-3">⬤</span>
-                    @endif
-                    @if ($plate->visibility == 0)
-                        <strong>NON </strong>visibile<span class="circle red ms-3">⬤</span>
-                    @endif
-                </p>
-            </div>
-
-            <div class="col-4 align-self-start py-3">
-
-
-
-                @if ($plate->ingredients)
-                    <p class="text-dark-red m-0"><strong>Ingredienti: </strong> {{ $plate->ingredients }}</p>
-                @else
-                    <p class="text-dark-red m-0"><strong>Ingredienti: </strong>Nessun ingrediente inserito </p>
-                @endif
-                <br>
-                @if ($plate->description)
-                    <p class="text-dark-red m-0"><strong>Descrizione: </strong> {{ $plate->description }}</p>
-                @else
-                    <p class="text-dark-red m-0"><strong>Descrizione: </strong> Nessuna descrizione disponibile </p>
-                @endif
-            </div>
-
-
-
-            <div class="col-12">
-                <h4 class="text-center text-dark-red">Azioni</h4>
-                <div class="d-flex flex-column">
-                    <div>
-                        <a href="{{ route('admin.plates.edit', $plate->id) }}" type="button"
-                            class="btn btn_edit col-12 mb-3">Aggiorna</a>
-                    </div>
-                    <div>
-
-
-                        <button data-bs-toggle="modal" data-bs-target="#delete-{{ $plate->id }}"
-                            class="btn btn_delete col-12 mb-3">Elimina</button>
-
-                        @include('partials.plate-modal')
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <p class="text-dark-red"> <span class="ms_caption fw-bold">Legenda:</span> <span
+                class="circle green ms-3">⬤</span>
+            Visibile <span class="circle red ms-3">⬤</span> Non
+            visibile </p>
 
     </div>
-@endsection
+</div>
 
-<style>
+@include ('partials.message')
+
+<div class="container px-5">
+    <div class="row ms_row hight_row bg-white border-0 px-3 py-5 rounded-4 shadow">
+
+        <div class="col-4">
+            @if ($plate->plate_image)
+            <img class='img-fluid' src="{{ asset('storage/' . $plate->plate_image) }}" alt="$plate->title">
+            @else
+            <div class='placeholder p-5 bg-secondary d-flex align-items-center justify-content-center'
+                style='width:140px'>
+                Placeholder</div>
+            @endif
+        </div>
+
+        <div class="col-4">
+            <h4 class="text-dark-red fw-bold">Nome: <span class="fw-normal">{{ $plate->name }}</span></h4>
+
+            <h4 class="text-dark-red fw-bold">Portata: <span class="fw-normal">{{ $plate->type }} </span></h4>
+
+            @if ($plate->price)
+            <h4 class="text-dark-red fw-bold">Prezzo: <span class="fw-normal">{{ $plate->price }} &euro;</span></h4>
+            @else
+            <h4 class="text-dark-red fw-bold">Prezzo: <span class="fw-normal">Nessun prezzo stabilito</span></h4>
+            @endif
+
+            <h4 class="text-dark-red fw-bold">Visibilità per il cliente: </strong>
+                @if ($plate->visibility == 1)
+                <span class="fw-normal">Visibile</span><span class="circle green ms-3">⬤</span>
+                @endif
+                @if ($plate->visibility == 0)
+                <strong>NON </strong> <span class="fw-normal">visibile</span><span class="circle red ms-3">⬤</span>
+                @endif
+            </h4>
+        </div>
+
+        <div class="col-4">
+
+            @if ($plate->ingredients)
+            <h4 class="text-dark-red m-0 fw-bold"><strong>Ingredienti: </strong> <span
+                    class="fw-normal">{{ $plate->ingredients }}</span></h4>
+            @else
+            <h4 class="text-dark-red m-0 fw-bold"><strong>Ingredienti: </strong> <span class="fw-normal">Nessun
+                    ingrediente inserito </span></h4>
+            @endif
+            <br>
+            @if ($plate->description)
+            <h4 class="text-dark-red m-0 fw-bold"><strong>Descrizione: </strong> <span
+                    class="fw-normal">{{ $plate->description }}</span></h4>
+            @else
+            <h4 class="text-dark-red m-0 fw-bold"><strong>Descrizione: </strong> <span class="fw-normal">Nessuna
+                    descrizione disponibile </span></h4>
+            @endif
+
+            <div class="ms-auto mt-5 ">
+
+                <a href="{{ route('admin.plates.edit', $plate->id) }}" type="button"
+                    class="btn btn_edit me-2">Aggiorna</a>
+
+                <button data-bs-toggle="modal" data-bs-target="#delete-{{ $plate->id }}"
+                    class="btn btn_delete">Elimina</button>
+
+                @include('partials.plate-modal')
+
+            </div>
+        </div>
+
+    </div>
+
+    @endsection
+
+    <style>
     .circle {
         font-size: 1.5rem;
     }
@@ -107,17 +100,17 @@
         color: red;
     }
 
-    hr.new {
-        border: 2px solid #A43C28;
-        opacity: 1;
-    }
-
     .ms_caption {
-        font-style: italic;
+
         font-size: 18px
     }
 
-    .hight_row {
-        height: 55vh;
+    .menu_icon {
+        width: 80px;
     }
-</style>
+
+
+    .actions {
+        width: fit-content;
+    }
+    </style>
