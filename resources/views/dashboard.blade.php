@@ -6,8 +6,8 @@
             <div class="p-5">
 
                 <div class="text-center d-flex align-items-center">
-                    <h1 class="text-dark-red text-center"><strong>Benvenuto nel pannello di amministrazione</strong></h1>
-                    <img class="w-25 ms-auto" src="{{ asset('img/deliveboo-logo.png') }}" alt="">
+                    <h3 class="text-dark-red text-center"><strong>Benvenuto nel pannello di amministrazione</strong></h2>
+                        <img class="ms-auto" src="{{ asset('img/deliveboo-logo.png') }}" alt="">
                 </div>
 
 

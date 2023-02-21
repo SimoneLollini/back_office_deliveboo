@@ -2,16 +2,21 @@
 
 @import '~bootstrap/scss/bootstrap';
 
+img {
+    max-width: 100%;
+}
+
 body {
     background-color: $primary;
 }
 
 //header_nav//---------
-header{
-    img{
+header {
+    img {
         width: 80px;
     }
 }
+
 header,
 #sidebarMenu {
     background-color: $white;
@@ -144,36 +149,37 @@ header,
     background-repeat: no-repeat;
     background-size: cover;
     height: calc(100vh - 80px);
-    .card{
+
+    .card {
         height: 80%;
     }
 
-    .card-body{
-overflow-y: auto;
-overflow-x: hidden;
+    .card-body {
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 }
 
 .card-body::-webkit-scrollbar {
     width: 10px;
-  }
+}
 
-  /* Track */
-  .card-body::-webkit-scrollbar-track {
+/* Track */
+.card-body::-webkit-scrollbar-track {
     border: 1px solid rgb(182, 182, 182);
     border-radius: 10px;
-  }
+}
 
-  /* Handle */
-  .card-body::-webkit-scrollbar-thumb {
+/* Handle */
+.card-body::-webkit-scrollbar-thumb {
     background: #ffbd59;
     border-radius: 10px;
-  }
+}
 
-  /* Handle on hover */
-  .card-body::-webkit-scrollbar-thumb:hover {
+/* Handle on hover */
+.card-body::-webkit-scrollbar-thumb:hover {
     background: grey;
-  }
+}
 
 //form//---------
 .form-check-input:checked {
