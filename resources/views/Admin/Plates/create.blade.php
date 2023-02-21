@@ -17,8 +17,8 @@
             <div class="mb-3">
                 <label for="name" class="form-label text-dark-red">Nome del piatto <strong
                         class="text-danger">*</strong></label>
-                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
-                    value="{{ old('name') }}" required>
+                <input type="text" required maxlength="100" class="form-control @error('name') is-invalid @enderror"
+                    id="name" name="name" value="{{ old('name') }}" required>
                 @error('name')
                     <small id="nameHlper" class="text-danger">{{ $message }}</small>
                 @enderror
@@ -51,8 +51,8 @@
 
             <div class="mb-3">
                 <label for="price" class="form-label text-dark-red">Prezzo del piatto</label>
-                <input type="number" class="form-control @error('price') is-invalid @enderror" id="price"
-                    name="price" value="{{ old('price') }}" step="0.01">
+                <input type="number" max="100" class="form-control @error('price') is-invalid @enderror"
+                    id="price" name="price" value="{{ old('price') }}" step="0.01">
                 @error('price')
                     <small id="priceHlper" class="text-danger">{{ $message }}</small>
                 @enderror
@@ -68,7 +68,7 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="type" class="form-label text-dark-red">Tipologia del piatto <strong
                         class="text-danger">*</strong></label>
                 <select class="form-select form-select-lg " name="type" id="type" required>
@@ -78,7 +78,7 @@
                     <option value="secondo">Secondo</option>
                     <option value="dolce">Dolce</option>
                 </select>
-            </div>
+            </div> --}}
             <button type="submit" class="rounded text-light fw-bold border-0 red">Conferma</button>
         </form>
     </div>

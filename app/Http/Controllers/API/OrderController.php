@@ -31,7 +31,7 @@ class OrderController extends Controller
             'email' => 'required|email',
             'address' => 'required',
             'phone' => 'required|min:10|max:12',
-            'description' => 'nullable'
+            'description' => 'nullable',
         ]);
 
         if ($validator->fails()) {

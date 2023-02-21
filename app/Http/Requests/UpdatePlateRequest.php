@@ -32,7 +32,7 @@ class UpdatePlateRequest extends FormRequest
             'ingredients' => 'nullable',
             'price' => 'nullable|numeric|min:0|not_in:0',
             'visibility' => 'nullable',
-            'type' => 'required'
+            'type' => 'nullable'
         ];
     }
     /**

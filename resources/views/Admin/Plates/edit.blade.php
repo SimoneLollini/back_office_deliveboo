@@ -79,7 +79,7 @@
                     <small id="visibilityHlper" class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
-
+            {{-- 
             <div class="mb-3">
                 <label for="type" class="form-label text-dark-red">Tipologia del piatto</label>
                 <select class="form-select form-select-lg " name="type" id="type" required>
@@ -89,7 +89,7 @@
                     <option value="secondo">Secondo</option>
                     <option value="dolce">Dolce</option>
                 </select>
-            </div>
+            </div> --}}
 
 
 
