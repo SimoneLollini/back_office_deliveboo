@@ -95,11 +95,6 @@
         padding: 0.5rem 1rem;
     }
 
-    hr.new {
-        border: 2px solid #A43C28;
-        opacity: 1;
-    }
-
     #plate_form {
         background-color: #f6edda;
         padding: 1rem;

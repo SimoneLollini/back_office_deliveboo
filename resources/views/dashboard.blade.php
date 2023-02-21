@@ -3,45 +3,42 @@
 @section('content')
     @if ($user_restaurant)
         <div class="container px-3 py-2">
-            <div class="">
-                <div class="d-flex align-items-center justify-content-start">
-                    <img class="px-2 logo_dash" src="{{ asset('img/deliveboo-logo.png') }}" alt="">
-                    <h3 class="text-dark-red text-center">
-                        <strong>Benvenuto nel pannello di amministrazione</strong>
-                    </h3>
-                </div>
+            <h1 class="text-dark-red text-center">
+                <strong>Benvenuto nel pannello di amministrazione</strong>
+            </h1>
+            <hr class="new">
+        </div>
+
+        <div class="container align-items-center card p-5 rounded-4 border-0">
+
+            @include ('partials.message')
+            <div class="col-4 text-center">
+                <img src="{{ asset('storage/' . $user_restaurant->restaurant_image) }}"
+                    alt="{{ $user_restaurant->restaurant_image }}" class="img-fluid" style="height: 240px">
             </div>
 
-            <div class="row align-items-center card p-5 rounded-5 border-0">
+            <div class="col-8 d-flex flex-column text-dark-red">
 
-                @include ('partials.message')
-                <div class="col-4 text-center">
-                    <img src="{{ asset('storage/' . $user_restaurant->restaurant_image) }}"
-                        alt="{{ $user_restaurant->restaurant_image }}" class="img-fluid" style="height: 240px">
-                </div>
+                <h2 class="my-3"> Nome Ristorante: {{ $user_restaurant->name }} </h2>
 
-                <div class="col-8 d-flex flex-column text-dark-red">
-
-                    <h2 class="my-3"> Nome Ristorante: {{ $user_restaurant->name }} </h2>
-
-                    <p> <strong>Tipologia cucina:</strong>
-                        @foreach ($user_restaurant->types as $index => $type)
-                            {{ $type->name }} |
-                        @endforeach
+                <p> <strong>Tipologia cucina:</strong>
+                    @foreach ($user_restaurant->types as $index => $type)
+                        {{ $type->name }} |
+                    @endforeach
 
 
-                    <p> <strong>Numero di telefono:</strong> {{ $user_restaurant->phone }} </p>
+                <p> <strong>Numero di telefono:</strong> {{ $user_restaurant->phone }} </p>
 
-                    <p> <strong>Partita iva del tuo ristorante:</strong> {{ $user_restaurant->piva }} </p>
+                <p> <strong>Partita iva del tuo ristorante:</strong> {{ $user_restaurant->piva }} </p>
 
-                    <p> <strong>Il tuo indirizzo:</strong> {{ $user_restaurant->address }}</p>
+                <p> <strong>Il tuo indirizzo:</strong> {{ $user_restaurant->address }}</p>
 
-                </div>
-
-                <a href="{{ route('admin.restaurants.edit', $user_restaurant->id) }}" type="button"
-                    class='btn btn_edit btn_fit ms-auto'>Modifica
-                    dati ristorante</a>
             </div>
+
+            <a href="{{ route('admin.restaurants.edit', $user_restaurant->id) }}" type="button"
+                class='btn btn_edit btn_fit ms-auto'>Modifica
+                dati ristorante</a>
+        </div>
         </div>
     @else
         <div class="background-log-reg  100vh">

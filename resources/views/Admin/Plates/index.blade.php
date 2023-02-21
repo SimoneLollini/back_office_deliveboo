@@ -119,11 +119,6 @@
         color: red;
     }
 
-    hr.new {
-        border: 2px solid #A43C28;
-        opacity: 1;
-    }
-
     .ms_caption {
         font-style: italic;
         font-size: 18px

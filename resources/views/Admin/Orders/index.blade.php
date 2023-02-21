@@ -109,10 +109,6 @@
         color: red;
     }
 
-    hr.new {
-        border: 2px solid #A43C28;
-        opacity: 1;
-    }
 
     .ms_order {
         background-color: #f6edda;
