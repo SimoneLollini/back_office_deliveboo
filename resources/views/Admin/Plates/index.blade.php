@@ -21,8 +21,9 @@
     </div>
 
 </div>
-
-@include ('partials.message')
+<div class="container">
+    @include ('partials.message')
+</div>
 
 @if (!$plates->isEmpty())
 @foreach ($plates as $plate)
@@ -91,7 +92,6 @@
 @endsection
 
 <style lang="scss">
-
 #ms_btn {
     color: #A43C28;
     font-size: 20px;
